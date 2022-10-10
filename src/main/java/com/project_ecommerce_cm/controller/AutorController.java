@@ -63,12 +63,27 @@ public class AutorController {
 	}
 	
 	@SuppressWarnings("deprecation")
-	@GetMapping("/editarautor/{id}")
+	@GetMapping("/admin/editarA/{id}")
 	public ModelAndView editarAutor(@PathVariable("id") Integer id, Autor autor, RedirectAttributes redirectAttributes) {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("editarAutor");
+		modelAndView.setViewName("/admin/editarAutor");
 		autor = autorRepository.getById(id);
 		modelAndView.addObject("autorEdit", autor);
+		return modelAndView;
+	}
+	
+	@PostMapping("/admin/editarAutor")
+	public ModelAndView updateAutor(Autor autor, RedirectAttributes redirectAttributes) {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("redirect:/admin/listautor");
+
+		@SuppressWarnings("deprecation")
+		Autor autor1 = autorRepository.getById(autor.getId());
+		autor1.setNome(autor.getNome());
+
+		autorRepository.save(autor1);
+
+		redirectAttributes.addFlashAttribute("msg", "Autor(a) editado(a) com sucesso");
 		return modelAndView;
 	}
 

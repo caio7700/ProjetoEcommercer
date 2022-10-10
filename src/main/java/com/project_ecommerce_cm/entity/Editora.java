@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public class Autor {
+public class Editora {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
@@ -42,9 +42,9 @@ public class Autor {
 
 	@Override
 	public String toString() {
-		return "Autor [id=" + id + ", nome=" + nome + ", ativo=" + ativo + "]";
+		return "Editora [id=" + id + ", nome=" + nome + ", ativo=" + ativo + "]";
 	}
 	
 	
-
+	
 }

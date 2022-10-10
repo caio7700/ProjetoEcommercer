@@ -9,20 +9,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
+<title>Formulário Editora</title>
 </head>
 <body>
 	<header>
 		<nav>
-			<a class="menu" href="/listapessoas">cadastrar au</a>
+			<a class="menu" href="/listapessoas">Lista de Editoras</a>
 		</nav>
 	</header>
 	<div class="container">
 		<div class="card">
 			<h1>Formulário:</h1>
 			<p>${msgm}</p>
-			<form:form action="${s:mvcUrl('AC#create').build()}" method="POST"
-				modelAttribute="autor" enctype="multipart/form-data">
+			<form:form action="${s:mvcUrl('EC#create').build()}" method="POST"
+				modelAttribute="editora" enctype="multipart/form-data">
 				<div class="div1">
 					<label><b>Nome</b></label>
 					<form:input path="nome" />
