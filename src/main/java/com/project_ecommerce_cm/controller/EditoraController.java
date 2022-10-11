@@ -1,5 +1,7 @@
 package com.project_ecommerce_cm.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +41,23 @@ public class EditoraController {
 		redirectAttributes.addFlashAttribute("msgm", "Editora Cadastrada Com Sucesso");
 		return modelAndView;
 	}
+	
+	@GetMapping("/admin/listeditora")
+	public ModelAndView listEditora() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("admin/listEditora");
+		List<Editora> editora = editoraRepository.findAll();
+		modelAndView.addObject("listEditora", editora);
+		return modelAndView;
+	}
+	
+//	@GetMapping("/excluirEditora/{id}")
+//	public ModelAndView excluirEditora(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
+//		ModelAndView modelAndView = new ModelAndView("redirect:/admin/listeditora");
+//		Editora editora = editoraRepository.findById(id).get();
+//		editoraRepository.delete(editora);	
+//		redirectAttributes.addFlashAttribute("msg", "Editora Apagada Com Sucesso");
+//		return modelAndView;
+//	}
 
 }
