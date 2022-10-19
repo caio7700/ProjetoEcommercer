@@ -9,26 +9,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Formulário Editora</title>
+<link rel="stylesheet" href="/resources/css/editarPessoa.css">
+<title>Document</title>
 </head>
 <body>
 	<header>
 		<nav>
-			<a class="menu" href="/admin/listeditora">Lista de Editoras</a>
+			<ul class="nav-list">
+				<li><a class="menu" href="/pessoa">Cadastro de Editora</a></li>
+				<li><a class="menu" href="/listapessoas">Lista de Editoras</a></li>
+			</ul>
 		</nav>
 	</header>
 	<div class="container">
 		<div class="card">
-			<h1>Formulário:</h1>
-			<p>${msgm}</p>
-			<form:form action="${s:mvcUrl('EC#create').build()}" method="POST"
+			<h1>Atualize as Informções :</h1>
+			<form:form action="${s:mvcUrl('EC#updateEditora').build()}" method="POST"
 				modelAttribute="editora" enctype="multipart/form-data">
 				<div class="div1">
-					<label><b>Nome</b></label>
-					<form:input path="nome" />
-					<form:errors path="nome" />
+					<form:input type="hidden" path="id" value="${editoraEdit.id}" />
 				</div>
-				<button type="submit">CADASTRAR</button>
+				<div class="div1">
+					<label><b>Nome</b></label>
+					<form:input path="nome" value="${editoraEdit.nome}" />
+				</div>
+				<div>
+					<button type="submit">Atualizar</button>
+				</div>
 			</form:form>
 		</div>
 	</div>

@@ -15,7 +15,7 @@
 <body>
 	<header>
 		<nav>
-			<a class="menu" href="/formEditora">Cadastrar Editora</a>
+			<a class="menu" href="/admin/editora">Cadastrar Editora</a>
 		</nav>
 	</header>
 	<div class="container">
@@ -25,15 +25,23 @@
 			<table border="1">
 				<tr>
 					<th>NOME</th>
+					<th>ATIVO</th>
 					<th>AÇÕES</th>
 				</tr>
-				<c:forEach items="${listEditora}" var="e">
+				<c:forEach items="${listEditoras}" var="editora">
 
 					<tr>
-						<td>${e.nome}</td>
-					<!-- 	<a href="${s:mvcUrl('EC#editarEditora').arg(0, e.id).build() }"
-							class="a">Editar</a><td><a href="${s:mvcUrl('EC#excluirEditora').arg(0, e.id).build() }"
-							class="a2">Excluir</a> </td> -->
+						<td>${editora.nome}</td>
+						<td>${editora.ativo}</td>
+						<td><a href="${s:mvcUrl('EC#editarEditora').arg(0, editora.id).build() }"
+							class="a">Editar</a> 
+							<c:if test = "${editora.ativo == true}">
+								<a href="${s:mvcUrl('EC#inativarEditora').arg(0, editora.id).build() }" class="a2">Inativar</a>
+							</c:if>
+							<c:if test = "${editora.ativo == false}">
+								<a href="${s:mvcUrl('EC#ativarEditora').arg(0, editora.id).build() }" class="a2">ativar</a>
+							</c:if>
+							</td>
 
 					</tr>
 
