@@ -10,31 +10,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <title> Categoria </title>
 </head>
 <body>
 	<header>
 		<nav>
-			<a class="menu" href="/formAutor">Cadastrar Categoria</a>
+			<a class="nav-link" href="/admin/categoria">Cadastrar Categoria</a>
 		</nav>
 	</header>
 	<div class="container">
 		<div class="card">
 			<h2>Categoria</h2>
 			${msg}
-			<table border="1">
-				<tr>
-					<th>NOME</th>
-					<th>AÇÕES</th>
+			<table class="table table-bordered border-primary">
+				<tr class="table-success">
+					<th class="table-success">NOME</th>
+					<th class="table-success">ATIVO</th>
+					<th class="table-success">AÇÕES</th>
 				</tr>
 				<c:forEach items="${listaCategoria}" var="categoria">
 
-					<tr>
-						<td>${categoria.nome}</td>
-						<td><a href="${s:mvcUrl('CC#editarCategoria').arg(0, categoria.id).build() }"
-							class="a">Editar</a><a href="${s:mvcUrl('CC#excluirCategoria').arg(0, a.id).build() }"
-							class="a2">Excluir</a></td>
+					<tr class="table-success">
+						<td class="table-success">${categoria.nome}</td>
+						<td class="table-success">${categoria.ativo}</td>
+						<td class="table-success"><a href="${s:mvcUrl('CC#editarCategoria').arg(0, categoria.id).build() }"
+							class="a">Editar</a>
+							
+							<c:if test = "${categoria.ativo == true}">
+								<a href="${s:mvcUrl('CC#inativarCategoria').arg(0, categoria.id).build() }" class="a2">Inativar</a>
+							</c:if>
+							
+							<c:if test = "${categoria.ativo == false}">
+								<a href="${s:mvcUrl('CC#ativarCategoria').arg(0, categoria.id).build() }" class="a2">ativar</a>
+							</c:if>
+							</td>
 
 					</tr>
 

@@ -59,7 +59,7 @@ public class EditoraController {
 		editora.setAtivo(false);
 		editoraRepository.save(editora);
 		//editoraRepository.delete(editora);	
-		redirectAttributes.addFlashAttribute("msg", "Editora inativada Com Sucesso");
+		redirectAttributes.addFlashAttribute("msg", "Editora Inativada Com Sucesso");
 		return modelAndView;
 	}
 	
@@ -70,7 +70,7 @@ public class EditoraController {
 		editora.setAtivo(true);
 		editoraRepository.save(editora);
 		//editoraRepository.delete(editora);	
-		redirectAttributes.addFlashAttribute("msg", "Editora ativada Com Sucesso");
+		redirectAttributes.addFlashAttribute("msg", "Editora Ativada Com Sucesso");
 		return modelAndView;
 	}
 	
