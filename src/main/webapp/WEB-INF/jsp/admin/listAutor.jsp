@@ -45,12 +45,15 @@
 						<td class="table-success">${autor.nome}</td>
 						<td class="table-success">${autor.ativo}</td>
 						<td class="table-success"><a href="${s:mvcUrl('AC#editarAutor').arg(0, autor.id).build() }"
-							class="a">Editar</a> 
+							class="a"><img src="/resources/imgCSS/icone1.png"
+					style="width: 25px;" /></a> 
 							<c:if test = "${autor.ativo == true}">
-								<a href="${s:mvcUrl('AC#inativarAutor').arg(0, autor.id).build() }" class="a2">Inativar</a>
+								<a href="${s:mvcUrl('AC#inativarAutor').arg(0, autor.id).build() }" class="a2"><img src="/resources/imgCSS/icone3.png"
+					style="width: 25px;" /></a>
 							</c:if>
 							<c:if test = "${autor.ativo == false}">
-								<a href="${s:mvcUrl('AC#ativarAutor').arg(0, autor.id).build() }" class="a2">ativar</a>
+								<a href="${s:mvcUrl('AC#ativarAutor').arg(0, autor.id).build() }" class="a2"><img src="/resources/imgCSS/icone2.png"
+					style="width: 25px;" /></a>
 							</c:if>
 							</td>
 					</tr>

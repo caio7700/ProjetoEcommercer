@@ -45,14 +45,17 @@
 						<td class="table-success">${categoria.nome}</td>
 						<td class="table-success">${categoria.ativo}</td>
 						<td class="table-success"><a href="${s:mvcUrl('CC#editarCategoria').arg(0, categoria.id).build() }"
-							class="a">Editar</a>
+							class="a"><img src="/resources/imgCSS/icone1.png"
+					style="width: 25px;" /></a>
 							
 							<c:if test = "${categoria.ativo == true}">
-								<a href="${s:mvcUrl('CC#inativarCategoria').arg(0, categoria.id).build() }" class="a2">Inativar</a>
+								<a href="${s:mvcUrl('CC#inativarCategoria').arg(0, categoria.id).build() }" class="a2"><img src="/resources/imgCSS/icone3.png"
+					style="width: 25px;" /></a>
 							</c:if>
 							
 							<c:if test = "${categoria.ativo == false}">
-								<a href="${s:mvcUrl('CC#ativarCategoria').arg(0, categoria.id).build() }" class="a2">ativar</a>
+								<a href="${s:mvcUrl('CC#ativarCategoria').arg(0, categoria.id).build() }" class="a2"><img src="/resources/imgCSS/icone2.png"
+					style="width: 25px;" /></a>
 							</c:if>
 							</td>
 

@@ -50,14 +50,19 @@
 						<td class="table-success">${editora.ativo}</td>
 						<td class="table-success"><a
 							href="${s:mvcUrl('EC#editarEditora').arg(0, editora.id).build() }"
-							class="a">Editar</a> <c:if test="${editora.ativo == true}">
+							class="a"><img src="/resources/imgCSS/icone1.png"
+					style="width: 25px;" /></a> 
+							
+							<c:if test="${editora.ativo == true}">
 								<a
 									href="${s:mvcUrl('EC#inativarEditora').arg(0, editora.id).build() }"
-									class="a2">Inativar</a>
+									class="a2"><img src="/resources/imgCSS/icone3.png"
+					style="width: 25px;" /></a>
 							</c:if> <c:if test="${editora.ativo == false}">
 								<a
 									href="${s:mvcUrl('EC#ativarEditora').arg(0, editora.id).build() }"
-									class="a2">ativar</a>
+									class="a2"><img src="/resources/imgCSS/icone2.png"
+					style="width: 25px;" /></a>
 							</c:if></td>
 
 					</tr>

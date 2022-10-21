@@ -44,8 +44,8 @@
 				</div>
 				<div class="card-body">
 					<label class="col-sm-2 col-form-label"><b>Nome</b></label>
-					<form:input class="form-control" path="nome"
-						value="${autorEdit.nome}" />
+					<i class="icofont-gear"><form:input class="form-control" path="nome"
+						value="${autorEdit.nome}" /></i>
 				</div>
 				<div class="card-body">
 					<button type="submit" class="btn btn-outline-primary"
