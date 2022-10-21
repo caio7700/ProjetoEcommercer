@@ -53,12 +53,25 @@ public class AutorController {
 		return modelAndView;
 	}
 	
-	@GetMapping("/excluirAutor/{id}")
-	public ModelAndView excluirAutor(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
+	@GetMapping("/inativarAutor/{id}")
+	public ModelAndView inativarAutor(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
 		ModelAndView modelAndView = new ModelAndView("redirect:/admin/listautor");
 		Autor autor = autorRepository.findById(id).get();
-		autorRepository.delete(autor);	
-		redirectAttributes.addFlashAttribute("msg", "Autor(a) Apagado(a) Com Sucesso");
+		autor.setAtivo(false);
+		autorRepository.save(autor);
+		//editoraRepository.delete(autor);	
+		redirectAttributes.addFlashAttribute("msg", "Autor Inativado Com Sucesso");
+		return modelAndView;
+	}
+	
+	@GetMapping("/ativarAutor/{id}")
+	public ModelAndView ativarAutor(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
+		ModelAndView modelAndView = new ModelAndView("redirect:/admin/listautor");
+		Autor autor = autorRepository.findById(id).get();
+		autor.setAtivo(true);
+		autorRepository.save(autor);
+		//editoraRepository.delete(autor);	
+		redirectAttributes.addFlashAttribute("msg", "Autor Ativado Com Sucesso");
 		return modelAndView;
 	}
 	

@@ -10,32 +10,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <title>Lista de Autores</title>
 </head>
 <body>
 	<header>
 		<nav>
-			<a class="menu" href="/formAutor">Cadastrar Autores</a>
+			<a class="nav-link" href="/admin/autor">Cadastrar Autores</a>
 		</nav>
 	</header>
 	<div class="container">
 		<div class="card">
 			<h2>Tabela De Autores</h2>
 			${msg}
-			<table border="1">
-				<tr>
-					<th>NOME</th>
-					<th>AÇÕES</th>
+			<table class="table table-bordered border-primary">
+				<tr class="table-success">
+					<th class="table-success">NOME</th>
+					<th class="table-success">ATIVO</th>
+					<th class="table-success">AÇÕES</th>
 				</tr>
-				<c:forEach items="${listAutores}" var="a">
+				<c:forEach items="${listAutores}" var="autor">
 
-					<tr>
-						<td>${a.nome}</td>
-						<td><a href="${s:mvcUrl('AC#editarAutor').arg(0, a.id).build() }"
-							class="a">Editar</a><a href="${s:mvcUrl('AC#excluirAutor').arg(0, a.id).build() }"
-							class="a2">Excluir</a></td>
-
+					<tr class="table-success">
+						<td class="table-success">${autor.nome}</td>
+						<td class="table-success">${autor.ativo}</td>
+						<td class="table-success"><a href="${s:mvcUrl('AC#editarAutor').arg(0, autor.id).build() }"
+							class="a">Editar</a> 
+							<c:if test = "${autor.ativo == true}">
+								<a href="${s:mvcUrl('AC#inativarAutor').arg(0, autor.id).build() }" class="a2">Inativar</a>
+							</c:if>
+							<c:if test = "${autor.ativo == false}">
+								<a href="${s:mvcUrl('AC#ativarAutor').arg(0, autor.id).build() }" class="a2">ativar</a>
+							</c:if>
+							</td>
 					</tr>
 
 
