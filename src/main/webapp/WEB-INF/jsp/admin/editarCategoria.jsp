@@ -9,32 +9,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+	crossorigin="anonymous">
 <title>Document</title>
 </head>
 <body>
 	<header>
-		<nav>
-			<ul class="nav-list">
-				<li><a class="nav-link" href="/admin/categoria">Cadastro de Categoria</a></li>
-				<li><a class="nav-link" href="/admin/listacategoria">Lista de Categorias</a></li>
-			</ul>
+		<nav class="navbar bg-dark navbar-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#"> <img src="/resources/imgCSS/imgLogo.jpg"
+					style="width: 50px;" />
+				</a>
+
+				<ul class="nav justify-content-center">
+					<li class="nav-item"><a class="nav-link"
+						href="/admin/categoria">Cadastro de Categorias</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/admin/listacategoria">Lista de Categorias</a></li>
+				</ul>
+
+			</div>
 		</nav>
 	</header>
 	<div class="container" style="justify-content: center;">
 		<div class="card">
 			<h3 class="card-header">Atualize as Informções :</h3>
-			<form:form action="${s:mvcUrl('CC#updateCategoria').build()}" method="POST"
-				modelAttribute="categoria" enctype="multipart/form-data">
+			<form:form action="${s:mvcUrl('CC#updateCategoria').build()}"
+				method="POST" modelAttribute="categoria"
+				enctype="multipart/form-data">
 				<div class="card-body">
 					<form:input type="hidden" path="id" value="${categoriaEdit.id}" />
 				</div>
-				<div class="div1">
+				<div class="card-body">
 					<label class="col-sm-2 col-form-label"><b>Nome</b></label>
-					<form:input class="form-control" path="nome" value="${categoriaEdit.nome}" />
+					<form:input class="form-control" path="nome"
+						value="${categoriaEdit.nome}" />
 				</div>
-				<div>
-					<button type="submit" class="btn btn-outline-primary" style="--bs-btn-padding-y: .55rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .95rem;">Atualizar</button>
+				<div class="card-body">
+					<button type="submit" class="btn btn-outline-primary"
+						style="-bs-btn-padding-y: .55rem; - -bs-btn-padding-x: .5rem; - -bs-btn-font-size: .95rem;">Atualizar</button>
 				</div>
 			</form:form>
 		</div>

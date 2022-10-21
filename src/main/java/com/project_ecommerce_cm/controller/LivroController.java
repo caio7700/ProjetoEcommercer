@@ -11,7 +11,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.project_ecommerce_cm.entity.Editora;
 import com.project_ecommerce_cm.entity.Livro;
 import com.project_ecommerce_cm.repository.AutorRepository;
 import com.project_ecommerce_cm.repository.CategoriaRepository;

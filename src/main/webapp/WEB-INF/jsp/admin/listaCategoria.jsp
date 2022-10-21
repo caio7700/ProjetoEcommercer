@@ -15,8 +15,18 @@
 </head>
 <body>
 	<header>
-		<nav>
-			<a class="nav-link" href="/admin/categoria">Cadastrar Categoria</a>
+		<nav class="navbar bg-dark navbar-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#"> <img src="/resources/imgCSS/imgLogo.jpg"
+					style="width: 50px;" />
+				</a>
+
+				<ul class="nav justify-content-center">
+					<li class="nav-item"><a class="nav-link"
+						href="/admin/categoria">Cadastro de Categorias</a></li>
+				</ul>
+
+			</div>
 		</nav>
 	</header>
 	<div class="container">
