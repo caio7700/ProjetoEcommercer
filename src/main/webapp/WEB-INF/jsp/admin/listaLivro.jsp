@@ -40,10 +40,10 @@
 						href="/admin/categoria">cadastro de Categoria</a></li>
 
 					<li class="nav-item"><a class="nav-link"
-						href="/admin/listalivro">Lista de Livro</a></li>
+						href="/admin/listacategoria">Lista de Categorias</a></li>
 
 					<li class="nav-item"><a class="nav-link"
-						href="/admin/listalivro">Lista de Livros</a></li>
+						href="/admin/cadastrarlivro">Cadastro de Livros</a></li>
 				</ul>
 
 			</div>

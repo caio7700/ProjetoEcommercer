@@ -20,15 +20,31 @@
 	<header>
 		<nav class="navbar bg-dark navbar-dark">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#"> <img src="/resources/imgCSS/imgLogo.jpg"
-					style="width: 50px;" />
+				<a class="navbar-brand" href="#"> <img
+					src="/resources/imgCSS/imgLogo.jpg" style="width: 50px;" />
 				</a>
 
 				<ul class="nav justify-content-center">
+					<li class="nav-item"><a class="nav-link" href="/admin/autor">Cadastro
+							de Autor</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="/admin/editora">Cadastro de Editoras</a></li>
+						href="/admin/listautor">Lista de Autor</a></li>
+					<li class="nav-item"><a class="nav-link" href="/admin/editora">Cadastro
+							de Editora</a></li>
+
 					<li class="nav-item"><a class="nav-link"
-						href="/admin/listeditora">Lista de Editoras</a></li>
+						href="/admin/listeditora">Lista de Editora</a></li>
+
+					<li class="nav-item"><a class="nav-link"
+						href="/admin/categoria">cadastro de Categoria</a></li>
+
+					<li class="nav-item"><a class="nav-link"
+						href="/admin/listacategoria">Lista de Categorias</a></li>
+
+					<li class="nav-item"><a class="nav-link"
+						href="/admin/cadastrarlivro">Cadastro de Livros</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/admin/listalivro">Lista de Livros</a></li>
 				</ul>
 
 			</div>

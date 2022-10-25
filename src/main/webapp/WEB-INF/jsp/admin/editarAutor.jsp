@@ -20,15 +20,31 @@
 	<header>
 		<nav class="navbar bg-dark navbar-dark">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#"> <img src="/resources/imgCSS/imgLogo.jpg"
-					style="width: 50px;" />
+				<a class="navbar-brand" href="#"> <img
+					src="/resources/imgCSS/imgLogo.jpg" style="width: 50px;" />
 				</a>
 
 				<ul class="nav justify-content-center">
-					<li class="nav-item"><a class="nav-link"
-						href="/admin/autor">Cadastro de Autor</a></li>
+					<li class="nav-item"><a class="nav-link" href="/admin/autor">Cadastro
+							de Autor</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="/admin/listautor">Lista de Autor</a></li>
+					<li class="nav-item"><a class="nav-link" href="/admin/editora">Cadastro
+							de Editora</a></li>
+
+					<li class="nav-item"><a class="nav-link"
+						href="/admin/listeditora">Lista de Editora</a></li>
+
+					<li class="nav-item"><a class="nav-link"
+						href="/admin/categoria">cadastro de Categoria</a></li>
+
+					<li class="nav-item"><a class="nav-link"
+						href="/admin/listacategoria">Lista de Categorias</a></li>
+
+					<li class="nav-item"><a class="nav-link"
+						href="/admin/cadastrarlivro">Cadastro de Livros</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/admin/listalivro">Lista de Livros</a></li>
 				</ul>
 
 			</div>
@@ -43,9 +59,9 @@
 					<form:input type="hidden" path="id" value="${autorEdit.id}" />
 				</div>
 				<div class="card-body">
-					<label class="col-sm-2 col-form-label"><b>Nome</b></label>
-					<i class="icofont-gear"><form:input class="form-control" path="nome"
-						value="${autorEdit.nome}" /></i>
+					<label class="col-sm-2 col-form-label"><b>Nome</b></label> <i
+						class="icofont-gear"><form:input class="form-control"
+							path="nome" value="${autorEdit.nome}" /></i>
 				</div>
 				<div class="card-body">
 					<button type="submit" class="btn btn-outline-primary"

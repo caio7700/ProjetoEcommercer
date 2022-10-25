@@ -9,32 +9,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/resources/css/editarPessoa.css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+	crossorigin="anonymous">
 <title>Document</title>
 </head>
 <body>
 	<header>
-		<nav>
-			<ul class="nav-list">
-				<li><a class="menu" href="/pessoa">Cadastro de Autores</a></li>
-				<li><a class="menu" href="/listapessoas">Lista de Autores</a></li>
-			</ul>
+		<nav class="navbar bg-dark navbar-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#"> <img src="/resources/imgCSS/imgLogo.jpg"
+					style="width: 50px;" />
+				</a>
+
+				<ul class="nav justify-content-center">
+					<li class="nav-item"><a class="nav-link"
+						href="/admin/autor">Cadastro de Autor</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/admin/listautor">Lista de Autor</a></li>
+				</ul>
+
+			</div>
 		</nav>
 	</header>
-	<div class="container">
+	<div class="container" style="justify-content: center;">
 		<div class="card">
-			<h1>Atualize as Informções :</h1>
-			<form:form action="${s:mvcUrl('AC#updateAutor').build()}" method="POST"
-				modelAttribute="autor" enctype="multipart/form-data">
-				<div class="div1">
+			<h3 class="card-header">Atualize as Informções :</h3>
+			<form:form action="${s:mvcUrl('AC#updateAutor').build()}"
+				method="POST" modelAttribute="autor" enctype="multipart/form-data">
+				<div class="card-body">
 					<form:input type="hidden" path="id" value="${autorEdit.id}" />
 				</div>
-				<div class="div1">
-					<label><b>Nome</b></label>
-					<form:input path="nome" value="${autorEdit.nome}" />
+				<div class="card-body">
+					<label class="col-sm-2 col-form-label"><b>Nome</b></label>
+					<i class="icofont-gear"><form:input class="form-control" path="nome"
+						value="${autorEdit.nome}" /></i>
 				</div>
-				<div>
-					<button type="submit">Atualizar</button>
+				<div class="card-body">
+					<button type="submit" class="btn btn-outline-primary"
+						style="-bs-btn-padding-y: .55rem; - -bs-btn-padding-x: .5rem; - -bs-btn-font-size: .95rem;">Atualizar</button>
 				</div>
 			</form:form>
 		</div>
