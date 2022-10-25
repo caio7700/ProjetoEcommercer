@@ -26,6 +26,24 @@
 
 				<ul class="nav justify-content-center">
 					<li class="nav-item"><a class="nav-link"
+						href="/admin/autor">Cadastro de Autor</a></li>
+						
+						<li class="nav-item"><a class="nav-link"
+						href="/admin/listautor">Lista de Autores</a></li>
+						
+						<li class="nav-item"><a class="nav-link"
+						href="/admin/editora">Cadastro de Editora</a></li>
+						
+						<li class="nav-item"><a class="nav-link"
+						href="/admin/listeditora">Lista de Editora</a></li>
+						
+						<li class="nav-item"><a class="nav-link"
+						href="/admin/categoria">cadastro de Categoria</a></li>
+						
+						<li class="nav-item"><a class="nav-link"
+						href="/admin/listalivro">Lista de Livro</a></li>
+						
+						<li class="nav-item"><a class="nav-link"
 						href="/admin/listalivro">Lista de Livros</a></li>
 				</ul>
 
