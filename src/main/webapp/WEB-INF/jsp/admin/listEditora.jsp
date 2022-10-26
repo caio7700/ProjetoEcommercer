@@ -21,32 +21,40 @@
 	<header>
 		<nav class="navbar bg-dark navbar-dark">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#"> <img src="/resources/imgCSS/imgLogo.jpg"
-					style="width: 50px;" />
+				<a class="navbar-brand" href="#"> <img
+					src="/resources/imgCSS/imgLogo.jpg" style="width: 50px;" />
 				</a>
 
-				<ul class="nav justify-content-center">
-					<li class="nav-item"><a class="nav-link"
-						href="/admin/autor">Cadastro de Autor</a></li>
-						
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#menu"
+					style="cursor: pointer;" aria-expanded="true">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="navbar-collapse collapse" id="menu">
+					<ul class="nav justify-content-center">
+						<li class="nav-item"><a class="nav-link" href="/admin/autor">Cadastro
+								de Autor</a></li>
+
 						<li class="nav-item"><a class="nav-link"
-						href="/admin/listautor">Lista de Autores</a></li>
-						
+							href="/admin/listautor">Lista de Autores</a></li>
+
 						<li class="nav-item"><a class="nav-link"
-						href="/admin/editora">Cadastro de Editora</a></li>
-						
+							href="/admin/editora">Cadastro de Editora</a></li>
+
 						<li class="nav-item"><a class="nav-link"
-						href="/admin/categoria">Cadastro de Categoria</a></li>
-						
+							href="/admin/categoria">Cadastro de Categoria</a></li>
+
 						<li class="nav-item"><a class="nav-link"
-						href="/admin/listacategoria">Lista de Categorias</a></li>
-						
+							href="/admin/listacategoria">Lista de Categorias</a></li>
+
 						<li class="nav-item"><a class="nav-link"
-						href="/admin/cadastrarlivro">Cadastro de Livro</a></li>
-						
+							href="/admin/cadastrarlivro">Cadastro de Livro</a></li>
+
 						<li class="nav-item"><a class="nav-link"
-						href="/admin/listalivro">Lista de Livros</a></li>
-				</ul>
+							href="/admin/listalivro">Lista de Livros</a></li>
+					</ul>
+				</div>
 
 			</div>
 		</nav>
@@ -69,18 +77,16 @@
 						<td class="table-success"><a
 							href="${s:mvcUrl('EC#editarEditora').arg(0, editora.id).build() }"
 							class="a"><img src="/resources/imgCSS/icone1.png"
-					style="width: 25px;" /></a> 
-							
-							<c:if test="${editora.ativo == true}">
+								style="width: 25px;" /></a> <c:if test="${editora.ativo == true}">
 								<a
 									href="${s:mvcUrl('EC#inativarEditora').arg(0, editora.id).build() }"
 									class="a2"><img src="/resources/imgCSS/icone3.png"
-					style="width: 25px;" /></a>
+									style="width: 25px;" /></a>
 							</c:if> <c:if test="${editora.ativo == false}">
 								<a
 									href="${s:mvcUrl('EC#ativarEditora').arg(0, editora.id).build() }"
 									class="a2"><img src="/resources/imgCSS/icone2.png"
-					style="width: 25px;" /></a>
+									style="width: 25px;" /></a>
 							</c:if></td>
 
 					</tr>
@@ -90,5 +96,9 @@
 			</table>
 		</div>
 	</div>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+		crossorigin="anonymous"></script>
 </body>
 </html>

@@ -10,39 +10,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+	crossorigin="anonymous">
 <title>Lista de Autores</title>
 </head>
 <body>
 	<header>
 		<nav class="navbar bg-dark navbar-dark">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#"> <img src="/resources/imgCSS/imgLogo.jpg"
-					style="width: 50px;" />
+				<a class="navbar-brand" href="#"> <img
+					src="/resources/imgCSS/imgLogo.jpg" style="width: 50px;" />
 				</a>
 
-				<ul class="nav justify-content-center">
-					<li class="nav-item"><a class="nav-link"
-						href="/admin/autor">Cadastro de Autor</a></li>
-						
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#menu"
+					style="cursor: pointer;" aria-expanded="true">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="navbar-collapse collapse" id="menu">
+					<ul class="nav justify-content-center">
+						<li class="nav-item"><a class="nav-link" href="/admin/autor">Cadastro
+								de Autor</a></li>
+
 						<li class="nav-item"><a class="nav-link"
-						href="/admin/editora">Cadastro de Editora</a></li>
-						
+							href="/admin/editora">Cadastro de Editora</a></li>
+
 						<li class="nav-item"><a class="nav-link"
-						href="/admin/listeditora">Lista de Editoras</a></li>
-						
+							href="/admin/listeditora">Lista de Editoras</a></li>
+
 						<li class="nav-item"><a class="nav-link"
-						href="/admin/categoria">Cadastro de Categoria</a></li>
-						
+							href="/admin/categoria">Cadastro de Categoria</a></li>
+
 						<li class="nav-item"><a class="nav-link"
-						href="/admin/listacategoria">Lista de Categorias</a></li>
-						
+							href="/admin/listacategoria">Lista de Categorias</a></li>
+
 						<li class="nav-item"><a class="nav-link"
-						href="/admin/cadastrarlivro">Cadastro de Livro</a></li>
-						
+							href="/admin/cadastrarlivro">Cadastro de Livro</a></li>
+
 						<li class="nav-item"><a class="nav-link"
-						href="/admin/listalivro">Lista de Livros</a></li>
-				</ul>
+							href="/admin/listalivro">Lista de Livros</a></li>
+					</ul>
+				</div>
 
 			</div>
 		</nav>
@@ -62,18 +74,20 @@
 					<tr class="table-success">
 						<td class="table-success">${autor.nome}</td>
 						<td class="table-success">${autor.ativo}</td>
-						<td class="table-success"><a href="${s:mvcUrl('AC#editarAutor').arg(0, autor.id).build() }"
+						<td class="table-success"><a
+							href="${s:mvcUrl('AC#editarAutor').arg(0, autor.id).build() }"
 							class="a"><img src="/resources/imgCSS/icone1.png"
-					style="width: 25px;" /></a> 
-							<c:if test = "${autor.ativo == true}">
-								<a href="${s:mvcUrl('AC#inativarAutor').arg(0, autor.id).build() }" class="a2"><img src="/resources/imgCSS/icone3.png"
-					style="width: 25px;" /></a>
-							</c:if>
-							<c:if test = "${autor.ativo == false}">
-								<a href="${s:mvcUrl('AC#ativarAutor').arg(0, autor.id).build() }" class="a2"><img src="/resources/imgCSS/icone2.png"
-					style="width: 25px;" /></a>
-							</c:if>
-							</td>
+								style="width: 25px;" /></a> <c:if test="${autor.ativo == true}">
+								<a
+									href="${s:mvcUrl('AC#inativarAutor').arg(0, autor.id).build() }"
+									class="a2"><img src="/resources/imgCSS/icone3.png"
+									style="width: 25px;" /></a>
+							</c:if> <c:if test="${autor.ativo == false}">
+								<a
+									href="${s:mvcUrl('AC#ativarAutor').arg(0, autor.id).build() }"
+									class="a2"><img src="/resources/imgCSS/icone2.png"
+									style="width: 25px;" /></a>
+							</c:if></td>
 					</tr>
 
 
@@ -81,5 +95,9 @@
 			</table>
 		</div>
 	</div>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+		crossorigin="anonymous"></script>
 </body>
 </html>
