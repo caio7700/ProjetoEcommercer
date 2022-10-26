@@ -31,26 +31,21 @@
 
 				<div class="navbar-collapse collapse" id="menu">
 					<ul class="nav justify-content-center">
-						<li class="nav-item"><a class="nav-link" href="/admin/autor">Cadastro
-								de Autor</a></li>
+						<li class="nav-item"><a class="nav-link" href="/admin/autor">Cadastro Autor</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="/admin/listautor">Lista de Autor</a></li>
+							href="/admin/listautor">Lista Autor</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="/admin/editora">Cadastro de Editora</a></li>
-
+							href="/admin/editora">Cadastro Editora</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="/admin/listeditora">Lista de Editora</a></li>
-
+							href="/admin/listeditora">Lista Editora</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="/admin/categoria">cadastro de Categoria</a></li>
-
+							href="/admin/categoria">cadastro Categoria</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="/admin/listacategoria">Lista de Categorias</a></li>
-
+							href="/admin/listacategoria">Lista Categorias</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="/admin/cadastrarlivro">Cadastro de Livros</a></li>
+							href="/admin/cadastrarlivro">Cadastro Livros</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="/admin/listalivro">Lista de Livros</a></li>
+							href="/admin/listalivro">Lista Livros</a></li>
 					</ul>
 				</div>
 
