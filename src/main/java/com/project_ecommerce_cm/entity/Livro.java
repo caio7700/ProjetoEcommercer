@@ -5,23 +5,31 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Livro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-
+	@NotBlank
 	private String titulo;
-	private int paginas;
+	@NotNull
+	private Integer paginas;
+	@NotNull
 	@OneToOne
 	private Autor autor;
+	@NotNull
 	@OneToOne
 	private Editora editora;
+	@NotNull
 	@OneToOne
 	private Categoria categoria;
+
 	private String foto;
-	private double preco;
+	@NotNull
+	private Double preco;
 	private boolean destaque;
 	private boolean ativos;
 	public Integer getId() {
@@ -36,10 +44,10 @@ public class Livro {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	public int getPaginas() {
+	public Integer getPaginas() {
 		return paginas;
 	}
-	public void setPaginas(int paginas) {
+	public void setPaginas(Integer paginas) {
 		this.paginas = paginas;
 	}
 	public Autor getAutor() {
@@ -66,10 +74,10 @@ public class Livro {
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
-	public double getPreco() {
+	public Double getPreco() {
 		return preco;
 	}
-	public void setPreco(double preco) {
+	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
 	public boolean isDestaque() {
@@ -83,8 +91,7 @@ public class Livro {
 	}
 	public void setAtivos(boolean ativos) {
 		this.ativos = ativos;
-	}
-	
+	}	
 	
 
 }

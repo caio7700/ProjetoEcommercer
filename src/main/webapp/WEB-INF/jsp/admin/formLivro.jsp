@@ -44,7 +44,7 @@
 							href="/admin/listeditora">Lista de Editora</a></li>
 
 						<li class="nav-item"><a class="nav-link"
-							href="/admin/categoria">cadastro de Categoria</a></li>
+							href="/admin/categoria">Cadastro de Categoria</a></li>
 
 						<li class="nav-item"><a class="nav-link"
 							href="/admin/listalivro">Lista de Livro</a></li>
@@ -87,26 +87,29 @@
 						<label><b>Categoria</b></label>
 						<form:select path="categoria" class="form-select form-select-sm"
 							aria-label=".form-select-sm example">
-							<form:option value="NONE"> --SELECT--</form:option>
+							<form:option value=""> --SELECT--</form:option>
 							<form:options items="${categorias}" itemLabel="nome" />
 
 						</form:select>
+						<form:errors path="categoria" />
 					</div>
 					<div>
 						<label class="col-sm-2 col-form-label"><b>Editora</b></label>
 						<form:select path="editora" class="form-select form-select-sm"
 							aria-label=".form-select-sm example">
-							<form:option value="NONE"> --SELECT--</form:option>
+							<form:option value=""> --SELECT--</form:option>
 							<form:options items="${editoras}" itemLabel="nome" />
 						</form:select>
+						<form:errors path="editora" />
 					</div>
 					<div>
 						<label><b>Autor</b></label>
 						<form:select path="autor" class="form-select form-select-sm"
 							aria-label=".form-select-sm example">
-							<form:option value="NONE"> --SELECT--</form:option>
+							<form:option value=""> --SELECT--</form:option>
 							<form:options items="${autores}" itemLabel="nome" />
 						</form:select>
+						<form:errors path="autor" />
 					</div>
 					<div class="card-body">
 						<button type="submit" class="btn btn-outline-primary"

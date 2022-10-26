@@ -35,7 +35,7 @@
 								de Autores</a></li>
 
 						<li class="nav-item"><a class="nav-link"
-							href="/admin/editora">Lista de Autores</a></li>
+							href="/admin/listautor">Lista de Autores</a></li>
 
 						<li class="nav-item"><a class="nav-link"
 							href="/admin/listeditora">Lista de Editoras</a></li>

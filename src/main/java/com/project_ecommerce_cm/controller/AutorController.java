@@ -86,13 +86,17 @@ public class AutorController {
 	}
 	
 	@PostMapping("/admin/editarAutor")
-	public ModelAndView updateAutor(Autor autor, RedirectAttributes redirectAttributes) {
+	public ModelAndView updateAutor(@Valid Autor autor, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("redirect:/admin/listautor");
 
 		@SuppressWarnings("deprecation")
 		Autor autor1 = autorRepository.getById(autor.getId());
 		autor1.setNome(autor.getNome());
+		
+		if(bindingResult.hasErrors()) {
+			return editarAutor(autor1.getId(), autor1, redirectAttributes);
+		}
 
 		autorRepository.save(autor1);
 
