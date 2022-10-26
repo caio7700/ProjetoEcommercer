@@ -41,7 +41,7 @@
 							href="/admin/listeditora">Lista Editora</a></li>
 
 						<li class="nav-item"><a class="nav-link"
-							href="/admin/categoria">cadastro de Categoria</a></li>
+							href="/admin/categoria">Cadastro de Categoria</a></li>
 
 						<li class="nav-item"><a class="nav-link"
 							href="/admin/listacategoria">Lista Categorias</a></li>
