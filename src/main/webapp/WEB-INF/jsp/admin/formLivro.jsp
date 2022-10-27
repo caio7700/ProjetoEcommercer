@@ -60,19 +60,19 @@
 	<div class="container">
 		<div class="card" style="width: 1080px; justify-content: center;">
 			<h3 class="card-header">Formulário:</h3>
-			<p>${msgm}</p>
 			<form:form action="${s:mvcUrl('LC#create').build()}" method="POST"
 				modelAttribute="livro" enctype="multipart/form-data">
 				<div class="card-body">
+				<p style="color: green;">${msgm}</p>
 					<div>
 						<label class="col-sm-2 col-form-label"><b> Titulos </b></label>
-						<form:errors path="titulo" />
 						<form:input path="titulo" class="form-control" />
+						<form:errors path="titulo" style="color: red;"/>
 					</div>
 					<div>
 						<label class="col-sm-2 col-form-label"><b>Paginas</b></label>
-						<form:errors path="paginas" />
 						<form:input path="paginas" class="form-control" />
+						<form:errors path="paginas" style="color: red;"/>
 					</div>
 					<div>
 						<label class="col-sm-2 col-form-label"><b>Foto</b></label> <input
@@ -80,8 +80,8 @@
 					</div>
 					<div>
 						<label class="col-sm-2 col-form-label"><b>Preço</b></label>
-						<form:errors path="preco" />
 						<form:input path="preco" class="form-control" />
+						<form:errors path="preco" style="color: red;"/>
 					</div>
 					<div>
 						<label><b>Categoria</b></label>
@@ -91,7 +91,7 @@
 							<form:options items="${categorias}" itemLabel="nome" />
 
 						</form:select>
-						<form:errors path="categoria" />
+						<form:errors path="categoria" style="color: red;"/>
 					</div>
 					<div>
 						<label class="col-sm-2 col-form-label"><b>Editora</b></label>
@@ -100,7 +100,7 @@
 							<form:option value=""> --SELECT--</form:option>
 							<form:options items="${editoras}" itemLabel="nome" />
 						</form:select>
-						<form:errors path="editora" />
+						<form:errors path="editora" style="color: red;"/>
 					</div>
 					<div>
 						<label><b>Autor</b></label>
@@ -109,7 +109,7 @@
 							<form:option value=""> --SELECT--</form:option>
 							<form:options items="${autores}" itemLabel="nome" />
 						</form:select>
-						<form:errors path="autor" />
+						<form:errors path="autor" style="color: red;"/>
 					</div>
 					<div class="card-body">
 						<button type="submit" class="btn btn-outline-primary"

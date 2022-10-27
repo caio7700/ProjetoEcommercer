@@ -89,13 +89,17 @@ public class CategoriaController {
 	}
 	
 	@PostMapping("/admin/editarCategoria")
-	public ModelAndView updateCategoria(Categoria categoria, RedirectAttributes redirectAttributes) {
+	public ModelAndView updateCategoria(@Valid Categoria categoria, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("redirect:/admin/listacategoria");
 
 		@SuppressWarnings("deprecation")
 		Categoria categoria1 = categoriaRepository.getById(categoria.getId());
 		categoria1.setNome(categoria.getNome());
+		
+		if(bindingResult.hasErrors()) {
+			return editarCategoria(categoria1.getId(), categoria1, redirectAttributes);
+		}
 
 		categoriaRepository.save(categoria1);
 

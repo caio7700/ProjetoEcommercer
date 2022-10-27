@@ -60,13 +60,13 @@
 	<div class="container">
 		<div class="card">
 			<h3 class="card-header">Formulário:</h3>
-			<p>${msgm}</p>
 			<form:form action="${s:mvcUrl('AC#create').build()}" method="POST"
 				modelAttribute="autor" enctype="multipart/form-data">
 				<div class="card-body">
-					<label class="col-sm-2 col-form-label"><b>Nome</b></label>
+					<label class="col-sm-2 col-form-label" for="validationServerUsername"><b>Nome</b></label>
 					<form:input path="nome" class="form-control" />
-					<form:errors path="nome" />
+					<p style="color: green;">${msgm}</p>
+					<form:errors path="nome" style="color: red;"/>
 				</div>
 				<div class="card-body">
 					<button type="submit" class="btn btn-outline-primary"

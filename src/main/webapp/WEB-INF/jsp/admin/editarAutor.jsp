@@ -64,7 +64,7 @@
 					<label class="col-sm-2 col-form-label"><b>Nome</b></label> <i
 						class="icofont-gear"><form:input class="form-control"
 							path="nome" value="${autorEdit.nome}" /></i>
-							<form:errors path="nome" />
+							<form:errors path="nome" style="color: red;"/>
 				</div>
 				<div class="card-body">
 					<button type="submit" class="btn btn-outline-primary"

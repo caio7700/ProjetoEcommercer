@@ -85,13 +85,17 @@ public class EditoraController {
 	}
 	
 	@PostMapping("/admin/editarEditora")
-	public ModelAndView updateEditora(Editora editora, RedirectAttributes redirectAttributes) {
+	public ModelAndView updateEditora(@Valid Editora editora, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("redirect:/admin/listeditora");
 
 		@SuppressWarnings("deprecation")
 		Editora editora1 = editoraRepository.getById(editora.getId());
 		editora1.setNome(editora.getNome());
+		
+		if(bindingResult.hasErrors()) {
+			return editarEditora(editora1.getId(), editora1, redirectAttributes);
+		}
 
 		editoraRepository.save(editora1);
 

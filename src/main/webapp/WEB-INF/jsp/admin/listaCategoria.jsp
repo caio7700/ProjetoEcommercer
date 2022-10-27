@@ -62,7 +62,7 @@
 	<div class="container">
 		<div class="card">
 			<h2>Categoria</h2>
-			${msg}
+			<p style="color: blue;">${msg}</p>
 			<table class="table table-bordered border-primary">
 				<tr class="table-success">
 					<th class="table-success">NOME</th>

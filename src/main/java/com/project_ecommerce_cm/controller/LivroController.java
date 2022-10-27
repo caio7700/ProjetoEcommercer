@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project_ecommerce_cm.entity.Livro;
+import com.project_ecommerce_cm.infra.FileSaver;
 import com.project_ecommerce_cm.repository.AutorRepository;
 import com.project_ecommerce_cm.repository.CategoriaRepository;
 import com.project_ecommerce_cm.repository.EditoraRepository;
@@ -34,6 +35,9 @@ public class LivroController {
 	
 	@Autowired
 	AutorRepository autorRepository;
+	
+	@Autowired
+	FileSaver fileSaver;
 	
 	@GetMapping("/admin/cadastrarlivro")
 	public ModelAndView form (Livro livro) {
@@ -56,6 +60,11 @@ public class LivroController {
 		
 		if(bindingResult.hasErrors()) {
 			return form(livro);
+		}
+		
+		if(!foto1.isEmpty()) {
+			String path = fileSaver.write("imagens", foto1);
+			livro.setFoto(path);
 		}
 		
 		livroRepository.save(livro);
