@@ -96,7 +96,7 @@ public class LivroController {
 	}
 	
 	@PostMapping("/admin/editarLivro")
-	public ModelAndView updateEditora(@Valid Livro livro, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+	public ModelAndView updateLivro(@Valid Livro livro,MultipartFile foto1 ,BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("redirect:/admin/listalivro");
 
@@ -113,7 +113,11 @@ public class LivroController {
 			return editarLivro(livro1.getId(), livro1, redirectAttributes);
 		}
 		
-		//TODO fazer a parte de mudar a foto se o usuario mandar
+		if (foto1 != null) {
+			fileSaver.remove(livro1.getFoto());
+			String path = fileSaver.write("imagens", foto1);
+			livro1.setFoto(path);
+		}
 
 		livroRepository.save(livro1);
 

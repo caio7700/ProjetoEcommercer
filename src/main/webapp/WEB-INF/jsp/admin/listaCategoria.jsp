@@ -15,7 +15,7 @@
 	rel="stylesheet"
 	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
 	crossorigin="anonymous">
-<title>Categoria</title>
+<title>Lista de Categorias</title>
 </head>
 <body>
 	<header>
@@ -61,7 +61,7 @@
 	</header>
 	<div class="container">
 		<div class="card">
-			<h2>Categoria</h2>
+			<h2>Tabela de Categoria</h2>
 			<p style="color: blue;">${msg}</p>
 			<table class="table table-bordered border-primary">
 				<tr class="table-success">

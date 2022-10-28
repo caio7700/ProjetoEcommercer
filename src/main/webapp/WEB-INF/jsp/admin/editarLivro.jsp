@@ -14,7 +14,7 @@
 	rel="stylesheet"
 	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
 	crossorigin="anonymous">
-<title>Document</title>
+<title>Editar Livro</title>
 </head>
 <body>
 	<header>
@@ -31,7 +31,8 @@
 
 				<div class="navbar-collapse collapse" id="menu">
 					<ul class="nav justify-content-center">
-						<li class="nav-item"><a class="nav-link" href="/admin/autor">Cadastro Autor</a></li>
+						<li class="nav-item"><a class="nav-link" href="/admin/autor">Cadastro
+								Autor</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="/admin/listautor">Lista Autor</a></li>
 						<li class="nav-item"><a class="nav-link"
@@ -56,6 +57,77 @@
 			</div>
 		</nav>
 	</header>
+	<div class="container" style="justify-content: center;">
+		<div class="card">
+			<h3 class="card-header">Atualize as Informções do Livro:</h3>
+			<form:form action="${s:mvcUrl('LC#updateLivro').build()}"
+				method="POST" modelAttribute="livro" enctype="multipart/form-data">
+				<div class="card-body">
+					<form:input type="hidden" path="id" value="${livroEdit.id}" />
+				</div>
+				<div class="card-body">
+					<label class="col-sm-2 col-form-label"><b>Titulo</b></label> <i
+						class="icofont-gear"><form:input class="form-control"
+							path="titulo" value="${livroEdit.titulo}" /></i>
+					<form:errors path="titulo" style="color: red;" />
+				</div>
+				<div class="card-body">
+					<label class="col-sm-2 col-form-label"><b>Paginas</b></label> <i
+						class="icofont-gear"><form:input class="form-control"
+							path="paginas" value="${livroEdit.paginas}" /></i>
+					<form:errors path="paginas" style="color: red;" />
+				</div>
+				<div class="card-body">
+					<label class="col-sm-2 col-form-label"><b>Foto</b></label> <i
+						class="icofont-gear"> <form:input class="form-control"
+							type="file" path="foto" />
+					</i>
+					<div class="card-body">
+						<img src="/${livroEdit.foto}" style="width: 150px; height: 100px;" />
+					</div>
+				</div>
+				<div class="card-body">
+					<label class="col-sm-2 col-form-label"><b>Preço</b></label> <i
+						class="icofont-gear"><form:input class="form-control"
+							path="preco" value="${livroEdit.preco}" /></i>
+					<form:errors path="preco" style="color: red;" />
+				</div>
+
+				<div class="card-body">
+					<label class="col-sm-2 col-form-label"><b>Categoria</b></label>
+					<form:select path="categoria" class="form-select form-select-sm"
+						aria-label=".form-select-sm example">
+						<form:option value="${livroEdit.categoria.nome}"></form:option>
+
+					</form:select>
+				</div>
+
+				<div class="card-body">
+					<label class="col-sm-2 col-form-label"><b>Editora</b></label>
+					<form:select path="editora" class="form-select form-select-sm"
+						aria-label=".form-select-sm example">
+						<form:option value="${livroEdit.editora.nome}"></form:option>
+
+					</form:select>
+				</div>
+
+				<div class="card-body">
+					<label class="col-sm-2 col-form-label"><b>Autor</b></label>
+					<form:select path="autor" class="form-select form-select-sm"
+						aria-label=".form-select-sm example">
+						<form:option value="${livroEdit.autor.nome}"></form:option>
+						<form:options items="${autores}" itemLabel="nome" />
+
+					</form:select>
+				</div>
+
+				<div class="card-body">
+					<button type="submit" class="btn btn-outline-primary"
+						style="-bs-btn-padding-y: .55rem; - -bs-btn-padding-x: .5rem; - -bs-btn-font-size: .95rem;">Atualizar</button>
+				</div>
+			</form:form>
+		</div>
+	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"

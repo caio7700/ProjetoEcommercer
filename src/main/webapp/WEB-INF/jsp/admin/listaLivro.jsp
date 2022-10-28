@@ -13,7 +13,7 @@
 	rel="stylesheet"
 	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
 	crossorigin="anonymous">
-<title>Lista de Autores</title>
+<title>Lista de Livros</title>
 </head>
 <body>
 	<header>
@@ -44,13 +44,13 @@
 							href="/admin/listeditora">Lista de Editora</a></li>
 
 						<li class="nav-item"><a class="nav-link"
-							href="/admin/categoria">cadastro de Categoria</a></li>
+							href="/admin/categoria">Cadastro de Categoria</a></li>
 
 						<li class="nav-item"><a class="nav-link"
 							href="/admin/listacategoria">Lista de Categorias</a></li>
 
 						<li class="nav-item"><a class="nav-link"
-							href="/admin/cadastrarlivro">Cadastro de Livros</a></li>
+							href="/admin/cadastrarlivro">Cadastro de Livro</a></li>
 					</ul>
 				</div>
 

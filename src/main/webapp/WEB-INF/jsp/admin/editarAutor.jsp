@@ -14,7 +14,7 @@
 	rel="stylesheet"
 	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
 	crossorigin="anonymous">
-<title>Document</title>
+<title>Editar de Autor</title>
 </head>
 <body>
 	<header>
@@ -54,7 +54,7 @@
 	</header>
 	<div class="container" style="justify-content: center;">
 		<div class="card">
-			<h3 class="card-header">Atualize as Informções :</h3>
+			<h3 class="card-header">Atualize as Informções de Autor:</h3>
 			<form:form action="${s:mvcUrl('AC#updateAutor').build()}"
 				method="POST" modelAttribute="autor" enctype="multipart/form-data">
 				<div class="card-body">

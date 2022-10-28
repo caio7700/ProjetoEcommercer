@@ -14,7 +14,7 @@
 	rel="stylesheet"
 	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
 	crossorigin="anonymous">
-<title>Document</title>
+<title>Formulário de Autor</title>
 </head>
 <body>
 	<header>
@@ -59,7 +59,7 @@
 	</header>
 	<div class="container">
 		<div class="card">
-			<h3 class="card-header">Formulário:</h3>
+			<h3 class="card-header">Formulário de Autor:</h3>
 			<form:form action="${s:mvcUrl('AC#create').build()}" method="POST"
 				modelAttribute="autor" enctype="multipart/form-data">
 				<div class="card-body">

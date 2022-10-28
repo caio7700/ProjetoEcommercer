@@ -14,7 +14,7 @@
 	rel="stylesheet"
 	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
 	crossorigin="anonymous">
-<title>LIVROS</title>
+<title>Formulário de Livro</title>
 </head>
 <body>
 	<header>
@@ -59,13 +59,13 @@
 	</header>
 	<div class="container">
 		<div class="card" style="width: 1080px; justify-content: center;">
-			<h3 class="card-header">Formulário:</h3>
+			<h3 class="card-header">Formulário de Livro:</h3>
 			<form:form action="${s:mvcUrl('LC#create').build()}" method="POST"
 				modelAttribute="livro" enctype="multipart/form-data">
 				<div class="card-body">
 				<p style="color: green;">${msgm}</p>
 					<div>
-						<label class="col-sm-2 col-form-label"><b> Titulos </b></label>
+						<label class="col-sm-2 col-form-label"><b> Titulo </b></label>
 						<form:input path="titulo" class="form-control" />
 						<form:errors path="titulo" style="color: red;"/>
 					</div>
@@ -84,7 +84,7 @@
 						<form:errors path="preco" style="color: red;"/>
 					</div>
 					<div>
-						<label><b>Categoria</b></label>
+						<label class="col-sm-2 col-form-label"><b>Categoria</b></label>
 						<form:select path="categoria" class="form-select form-select-sm"
 							aria-label=".form-select-sm example">
 							<form:option value=""> --SELECT--</form:option>
@@ -103,7 +103,7 @@
 						<form:errors path="editora" style="color: red;"/>
 					</div>
 					<div>
-						<label><b>Autor</b></label>
+						<label class="col-sm-2 col-form-label"><b>Autor</b></label>
 						<form:select path="autor" class="form-select form-select-sm"
 							aria-label=".form-select-sm example">
 							<form:option value=""> --SELECT--</form:option>
