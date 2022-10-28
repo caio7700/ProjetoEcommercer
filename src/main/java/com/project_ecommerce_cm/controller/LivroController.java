@@ -1,5 +1,7 @@
 package com.project_ecommerce_cm.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -43,9 +46,9 @@ public class LivroController {
 	public ModelAndView form (Livro livro) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("/admin/formLivro");
-		modelAndView.addObject("categorias", categoriaRepository.findAll());
-		modelAndView.addObject("autores", autorRepository.findAll());
-		modelAndView.addObject("editoras", editoraRepository.findAll());
+		modelAndView.addObject("categorias", categoriaRepository.findByAtivoTrue());
+		modelAndView.addObject("autores", autorRepository.findByAtivoTrue());
+		modelAndView.addObject("editoras", editoraRepository.findByAtivoTrue());
 		return modelAndView;
 	}
 	
@@ -70,6 +73,73 @@ public class LivroController {
 		livroRepository.save(livro);
 
 		redirectAttributes.addFlashAttribute("msgm", "Livro Cadastrado Com Sucesso");
+		return modelAndView;
+	}
+	
+	@GetMapping("/admin/listalivro")
+	public ModelAndView listalivro() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("admin/listaLivro");
+		List<Livro> livros = livroRepository.findAll();
+		modelAndView.addObject("listaLivro", livros);
+		return modelAndView;
+	}
+	
+	@SuppressWarnings("deprecation")
+	@GetMapping("/admin/editarL/{id}")
+	public ModelAndView editarLivro(@PathVariable("id") Integer id, Livro livro, RedirectAttributes redirectAttributes) {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("/admin/editarLivro");
+		livro = livroRepository.getById(id);
+		modelAndView.addObject("livroEdit", livro);
+		return modelAndView;
+	}
+	
+	@PostMapping("/admin/editarLivro")
+	public ModelAndView updateEditora(@Valid Livro livro, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("redirect:/admin/listalivro");
+
+		@SuppressWarnings("deprecation")
+		Livro livro1 = livroRepository.getById(livro.getId());
+		livro1.setTitulo(livro.getTitulo());
+		livro1.setPaginas(livro.getPaginas());
+		livro1.setPreco(livro.getPreco());
+		livro1.setAutor(livro.getAutor());
+		livro1.setEditora(livro.getEditora());
+		livro1.setCategoria(livro.getCategoria());
+		
+		if(bindingResult.hasErrors()) {
+			return editarLivro(livro1.getId(), livro1, redirectAttributes);
+		}
+		
+		//TODO fazer a parte de mudar a foto se o usuario mandar
+
+		livroRepository.save(livro1);
+
+		redirectAttributes.addFlashAttribute("msg", "Livro editado(a) com sucesso");
+		return modelAndView;
+	}
+	
+	@GetMapping("/inativarLivro/{id}")
+	public ModelAndView inativarLivro(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
+		ModelAndView modelAndView = new ModelAndView("redirect:/admin/listalivro");
+		Livro livro = livroRepository.findById(id).get();
+		livro.setAtivo(false);
+		livroRepository.save(livro);
+		//editoraRepository.delete(livro);	
+		redirectAttributes.addFlashAttribute("msg", "Livro Inativado Com Sucesso");
+		return modelAndView;
+	}
+	
+	@GetMapping("/ativarLivro/{id}")
+	public ModelAndView ativarLivro(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
+		ModelAndView modelAndView = new ModelAndView("redirect:/admin/listalivro");
+		Livro livro = livroRepository.findById(id).get();
+		livro.setAtivo(true);
+		livroRepository.save(livro);
+		//editoraRepository.delete(livro);	
+		redirectAttributes.addFlashAttribute("msg", "Livro Ativado Com Sucesso");
 		return modelAndView;
 	}
 	

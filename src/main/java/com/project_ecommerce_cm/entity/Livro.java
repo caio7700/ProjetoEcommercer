@@ -31,7 +31,8 @@ public class Livro {
 	@NotNull
 	private Double preco;
 	private boolean destaque;
-	private boolean ativos;
+	private boolean ativo;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -86,12 +87,13 @@ public class Livro {
 	public void setDestaque(boolean destaque) {
 		this.destaque = destaque;
 	}
-	public boolean isAtivos() {
-		return ativos;
+	public boolean isAtivo() {
+		return ativo;
 	}
-	public void setAtivos(boolean ativos) {
-		this.ativos = ativos;
-	}	
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
+	}
+
 	
 
 }

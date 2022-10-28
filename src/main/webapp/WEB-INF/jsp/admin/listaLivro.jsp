@@ -57,10 +57,59 @@
 			</div>
 		</nav>
 	</header>
+<body>
+	<div class="container">
+		<div class="card">
+			<h2>Tabela De Livros</h2>
+			<p style="color: blue;">${msg}</p>
+			<table class="table table-bordered border-primary">
+				<tr class="table-success">
+					<th class="table-success">Titulo</th>
+					<th class="table-success">Nº PAG</th>
+					<th class="table-success">Foto</th>
+					<th class="table-success">Preço</th>
+					<th class="table-success">Categoria</th>
+					<th class="table-success">Editora</th>
+					<th class="table-success">Autor</th>
+					<th class="table-success">Ativo</th>
+					<th class="table-success">Ações</th>
+				</tr>
+				<c:forEach items="${listaLivro}" var="livro">
+
+					<tr class="table-success">
+						<td class="table-success">${livro.titulo}</td>
+						<td class="table-success">${livro.paginas}</td>
+						<td class="table-success"><img src='/${livro.foto}'
+							width="50px" height="50px" /></td>
+						<td class="table-success">${livro.preco}</td>
+						<td class="table-success">${livro.categoria.nome}</td>
+						<td class="table-success">${livro.editora.nome}</td>
+						<td class="table-success">${livro.autor.nome}</td>
+						<td class="table-success">${livro.ativo}</td>
+						<td class="table-success"><a
+							href="${s:mvcUrl('LC#editarLivro').arg(0, livro.id).build() }"
+							class="a"><img src="/resources/imgCSS/icone1.png"
+								style="width: 25px;" /></a> <c:if test="${livro.ativo == true}">
+								<a
+									href="${s:mvcUrl('LC#inativarLivro').arg(0, livro.id).build() }"
+									class="a2"><img src="/resources/imgCSS/icone3.png"
+									style="width: 25px;" /></a>
+							</c:if> <c:if test="${livro.ativo == false}">
+								<a
+									href="${s:mvcUrl('LC#ativarLivro').arg(0, livro.id).build() }"
+									class="a2"><img src="/resources/imgCSS/icone2.png"
+									style="width: 25px;" /></a>
+							</c:if></td>
+					</tr>
+
+
+				</c:forEach>
+			</table>
+		</div>
+	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
 		crossorigin="anonymous"></script>
-<body>
 </body>
 </html>

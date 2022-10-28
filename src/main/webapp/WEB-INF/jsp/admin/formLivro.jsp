@@ -47,7 +47,7 @@
 							href="/admin/categoria">Cadastro de Categoria</a></li>
 
 						<li class="nav-item"><a class="nav-link"
-							href="/admin/listalivro">Lista de Livro</a></li>
+							href="/admin/listacategoria">Lista de Categoria</a></li>
 
 						<li class="nav-item"><a class="nav-link"
 							href="/admin/listalivro">Lista de Livros</a></li>
