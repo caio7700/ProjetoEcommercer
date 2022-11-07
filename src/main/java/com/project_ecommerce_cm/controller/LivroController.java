@@ -29,21 +29,21 @@ public class LivroController {
 
 	@Autowired
 	LivroRepository livroRepository;
-	
+
 	@Autowired
 	CategoriaRepository categoriaRepository;
-	
+
 	@Autowired
 	EditoraRepository editoraRepository;
-	
+
 	@Autowired
 	AutorRepository autorRepository;
-	
+
 	@Autowired
 	FileSaver fileSaver;
-	
+
 	@GetMapping("/admin/cadastrarlivro")
-	public ModelAndView form (Livro livro) {
+	public ModelAndView form(Livro livro) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("/admin/formLivro");
 		modelAndView.addObject("categorias", categoriaRepository.findByAtivoTrue());
@@ -51,31 +51,32 @@ public class LivroController {
 		modelAndView.addObject("editoras", editoraRepository.findByAtivoTrue());
 		return modelAndView;
 	}
-	
-	@InitBinder    /* Converts empty strings into null when a form is submitted */
-	public void initBinder(WebDataBinder binder) {  
-	    binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));  
+
+	@InitBinder /* Converts empty strings into null when a form is submitted */
+	public void initBinder(WebDataBinder binder) {
+		binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
 	}
-	
+
 	@PostMapping("/admin/livro")
-	public ModelAndView create(MultipartFile foto1, @Valid Livro livro, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+	public ModelAndView create(MultipartFile foto1, @Valid Livro livro, BindingResult bindingResult,
+			RedirectAttributes redirectAttributes) {
 		ModelAndView modelAndView = new ModelAndView("redirect:/admin/cadastrarlivro");
-		
-		if(bindingResult.hasErrors()) {
+
+		if (bindingResult.hasErrors()) {
 			return form(livro);
 		}
-		
-		if(!foto1.isEmpty()) {
+
+		if (!foto1.isEmpty()) {
 			String path = fileSaver.write("imagens", foto1);
 			livro.setFoto(path);
 		}
-		
+
 		livroRepository.save(livro);
 
 		redirectAttributes.addFlashAttribute("msgm", "Livro Cadastrado Com Sucesso");
 		return modelAndView;
 	}
-	
+
 	@GetMapping("/admin/listalivro")
 	public ModelAndView listalivro() {
 		ModelAndView modelAndView = new ModelAndView();
@@ -84,21 +85,30 @@ public class LivroController {
 		modelAndView.addObject("listaLivro", livros);
 		return modelAndView;
 	}
-	
+
 	@SuppressWarnings("deprecation")
 	@GetMapping("/admin/editarL/{id}")
-	public ModelAndView editarLivro(@PathVariable("id") Integer id, Livro livro, RedirectAttributes redirectAttributes) {
+	public ModelAndView editarLivro(@PathVariable("id") Integer id, Livro livro,
+			RedirectAttributes redirectAttributes) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("/admin/editarLivro");
 		livro = livroRepository.getById(id);
+		modelAndView.addObject("categorias", categoriaRepository.findByAtivoTrue());
+		modelAndView.addObject("autores", autorRepository.findByAtivoTrue());
+		modelAndView.addObject("editoras", editoraRepository.findByAtivoTrue());
 		modelAndView.addObject("livroEdit", livro);
 		return modelAndView;
 	}
-	
+
 	@PostMapping("/admin/editarLivro")
-	public ModelAndView updateLivro(@Valid Livro livro,MultipartFile foto1 ,BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+	public ModelAndView updateLivro(MultipartFile foto1, @Valid Livro livro, BindingResult bindingResult,
+			RedirectAttributes redirectAttributes) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("redirect:/admin/listalivro");
+
+		if (bindingResult.hasErrors()) {
+			return editarLivro(livro.getId(), livro, redirectAttributes);
+		}
 
 		@SuppressWarnings("deprecation")
 		Livro livro1 = livroRepository.getById(livro.getId());
@@ -108,12 +118,8 @@ public class LivroController {
 		livro1.setAutor(livro.getAutor());
 		livro1.setEditora(livro.getEditora());
 		livro1.setCategoria(livro.getCategoria());
-		
-		if(bindingResult.hasErrors()) {
-			return editarLivro(livro1.getId(), livro1, redirectAttributes);
-		}
-		
-		if (foto1 != null) {
+
+		if (!foto1.isEmpty()) {
 			fileSaver.remove(livro1.getFoto());
 			String path = fileSaver.write("imagens", foto1);
 			livro1.setFoto(path);
@@ -124,27 +130,49 @@ public class LivroController {
 		redirectAttributes.addFlashAttribute("msg", "Livro editado(a) com sucesso");
 		return modelAndView;
 	}
-	
+
 	@GetMapping("/inativarLivro/{id}")
 	public ModelAndView inativarLivro(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
 		ModelAndView modelAndView = new ModelAndView("redirect:/admin/listalivro");
 		Livro livro = livroRepository.findById(id).get();
 		livro.setAtivo(false);
 		livroRepository.save(livro);
-		//editoraRepository.delete(livro);	
+		// editoraRepository.delete(livro);
 		redirectAttributes.addFlashAttribute("msg", "Livro Inativado Com Sucesso");
 		return modelAndView;
 	}
-	
+
 	@GetMapping("/ativarLivro/{id}")
 	public ModelAndView ativarLivro(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
 		ModelAndView modelAndView = new ModelAndView("redirect:/admin/listalivro");
 		Livro livro = livroRepository.findById(id).get();
 		livro.setAtivo(true);
 		livroRepository.save(livro);
-		//editoraRepository.delete(livro);	
+		// editoraRepository.delete(livro);
 		redirectAttributes.addFlashAttribute("msg", "Livro Ativado Com Sucesso");
 		return modelAndView;
 	}
-	
+
+	@GetMapping("/inativarDestaque/{id}")
+	public ModelAndView inativarDestaque(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
+		ModelAndView modelAndView = new ModelAndView("redirect:/admin/listalivro");
+		Livro livro = livroRepository.findById(id).get();
+		livro.setDestaque(false);
+		livroRepository.save(livro);
+		// editoraRepository.delete(livro);
+		redirectAttributes.addFlashAttribute("msg", "Livro Fora de Destaque");
+		return modelAndView;
+	}
+
+	@GetMapping("/ativarDestaque/{id}")
+	public ModelAndView ativarDestaque(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
+		ModelAndView modelAndView = new ModelAndView("redirect:/admin/listalivro");
+		Livro livro = livroRepository.findById(id).get();
+		livro.setDestaque(true);
+		livroRepository.save(livro);
+		// editoraRepository.delete(livro);
+		redirectAttributes.addFlashAttribute("msg", "Livro Ativado Com Sucesso");
+		return modelAndView;
+	}
+
 }

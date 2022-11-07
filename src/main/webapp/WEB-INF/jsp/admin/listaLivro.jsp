@@ -72,6 +72,7 @@
 					<th class="table-success">Editora</th>
 					<th class="table-success">Autor</th>
 					<th class="table-success">Ativo</th>
+					<th class="table-success">Destaque</th>
 					<th class="table-success">Ações</th>
 				</tr>
 				<c:forEach items="${listaLivro}" var="livro">
@@ -86,6 +87,7 @@
 						<td class="table-success">${livro.editora.nome}</td>
 						<td class="table-success">${livro.autor.nome}</td>
 						<td class="table-success">${livro.ativo}</td>
+						<td class="table-success">${livro.destaque}</td>
 						<td class="table-success"><a
 							href="${s:mvcUrl('LC#editarLivro').arg(0, livro.id).build() }"
 							class="a"><img src="/resources/imgCSS/icone1.png"
@@ -99,7 +101,21 @@
 									href="${s:mvcUrl('LC#ativarLivro').arg(0, livro.id).build() }"
 									class="a2"><img src="/resources/imgCSS/icone2.png"
 									style="width: 25px;" /></a>
-							</c:if></td>
+							</c:if>
+
+						<c:if test="${livro.destaque == true}">
+							<a
+								href="${s:mvcUrl('LC#inativarDestaque').arg(0, livro.id).build() }"
+								class="a2"><img src="/resources/imgCSS/icone3.png"
+								style="width: 25px;" /></a>
+						</c:if>
+						<c:if test="${livro.destaque == false}">
+							<a
+								href="${s:mvcUrl('LC#ativarDestaque').arg(0, livro.id).build() }"
+								class="a2"><img src="/resources/imgCSS/icone2.png"
+								style="width: 25px;" /></a>
+						</c:if>
+						</td>
 					</tr>
 
 

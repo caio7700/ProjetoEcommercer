@@ -3,6 +3,7 @@
 <!-- Import da taglib -->
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -96,28 +97,63 @@
 				<div class="card-body">
 					<label class="col-sm-2 col-form-label"><b>Categoria</b></label>
 					<form:select path="categoria" class="form-select form-select-sm"
-						aria-label=".form-select-sm example">
-						<form:option value="${livroEdit.categoria.nome}"></form:option>
-
-					</form:select>
+							aria-label=".form-select-sm example">
+							<form:option value=""> --SELECT--</form:option>
+						<c:forEach var="categoria" items="${categorias}">
+						    <c:choose>
+						        <c:when test="${livroEdit.categoria.id == categoria.id}">
+						            <form:option selected="true" value="${categoria}">
+						              ${categoria.nome}
+						            </form:option>
+						        </c:when>
+						
+						        <c:otherwise>
+						            <form:option value="${categoria}"> ${categoria.nome} </form:option>
+						        </c:otherwise>
+						    </c:choose>
+						</c:forEach>
+						</form:select>
 				</div>
 
 				<div class="card-body">
 					<label class="col-sm-2 col-form-label"><b>Editora</b></label>
 					<form:select path="editora" class="form-select form-select-sm"
-						aria-label=".form-select-sm example">
-						<form:option value="${livroEdit.editora.nome}"></form:option>
-
-					</form:select>
+							aria-label=".form-select-sm example">
+							<form:option value=""> --SELECT--</form:option>
+						<c:forEach var="editora" items="${editoras}">
+						    <c:choose>
+						        <c:when test="${livroEdit.editora.id == editora.id}">
+						            <form:option selected="true" value="${editora}">
+						              ${editora.nome}
+						            </form:option>
+						        </c:when>
+						
+						        <c:otherwise>
+						            <form:option value="${editora}"> ${editora.nome} </form:option>
+						        </c:otherwise>
+						    </c:choose>
+						</c:forEach>
+						</form:select>
 				</div>
 
 				<div class="card-body">
 					<label class="col-sm-2 col-form-label"><b>Autor</b></label>
 					<form:select path="autor" class="form-select form-select-sm"
-						aria-label=".form-select-sm example">
-						<form:option value="${livroEdit.autor.nome}"></form:option>
-						<form:options items="${autores}" itemLabel="nome" />
-
+							aria-label=".form-select-sm example">
+							<form:option value=""> --SELECT--</form:option>
+						<c:forEach var="autor" items="${autores}">
+						    <c:choose>
+						        <c:when test="${livroEdit.autor.id == autor.id}">
+						            <form:option selected="true" value="${autor}">
+						              ${autor.nome}
+						            </form:option>
+						        </c:when>
+						
+						        <c:otherwise>
+						            <form:option value="${autor}"> ${autor.nome} </form:option>
+						        </c:otherwise>
+						    </c:choose>
+						</c:forEach>
 					</form:select>
 				</div>
 
