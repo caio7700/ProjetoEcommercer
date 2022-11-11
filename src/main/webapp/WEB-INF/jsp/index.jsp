@@ -48,6 +48,9 @@
 .input-group {
 	width: 450px;
 }
+.navbar-brand mb-0 h1	 hover{
+    color: rgb(37, 37, 104);
+}
 </style>
 </head>
 <body>
@@ -70,7 +73,7 @@
 			</div>
 
 
-			<span class="navbar-brand mb-0 h1">BOOKFLIX</span>
+			<a href="/" class="link-logo" style="color: white;"><span class="navbar-brand mb-0 h1">BOOKFLIX</span></a>
 		</div>
 	</nav>
 
@@ -91,14 +94,14 @@
 							<li class="list-group-item">${autor.nome}</li></a>
 						</c:forEach>
 					</ul>
-					<span>Categorias</span>
+					<span><b>Categorias</b></span>
 					<ul class="list-group list-group-flush">
 						<c:forEach items="${categorias}" var="categoria">
 							<a href="${s:mvcUrl('HC#buscaPorCategoria').arg(0, categoria.id).build() }">
 							<li class="list-group-item">${categoria.nome}</li></a>
 						</c:forEach>
 					</ul>
-					<span>Editoras</span>
+					<span><b>Editoras</b></span>
 					<ul class="list-group list-group-flush">
 						<c:forEach items="${editoras}" var="editora">
 							<a href="${s:mvcUrl('HC#buscaPorEditora').arg(0, editora.id).build() }">
