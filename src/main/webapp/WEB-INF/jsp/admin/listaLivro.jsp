@@ -19,9 +19,7 @@
 	<header>
 		<nav class="navbar bg-dark navbar-dark">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#"> <img
-					src="/resources/imgCSS/imgLogo.jpg" style="width: 50px;" />
-				</a>
+				<a href="/" class="link-logo" style="color: white;"><span class="navbar-brand mb-0 h1">BOOKFLIX</span></a>
 
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#menu"
@@ -106,13 +104,13 @@
 						<c:if test="${livro.destaque == true}">
 							<a
 								href="${s:mvcUrl('LC#inativarDestaque').arg(0, livro.id).build() }"
-								class="a2"><img src="/resources/imgCSS/icone3.png"
+								class="a2"><img src="/resources/imgCSS/icone6.png"
 								style="width: 25px;" /></a>
 						</c:if>
 						<c:if test="${livro.destaque == false}">
 							<a
 								href="${s:mvcUrl('LC#ativarDestaque').arg(0, livro.id).build() }"
-								class="a2"><img src="/resources/imgCSS/icone2.png"
+								class="a2"><img src="/resources/imgCSS/icone5.png"
 								style="width: 25px;" /></a>
 						</c:if>
 						</td>

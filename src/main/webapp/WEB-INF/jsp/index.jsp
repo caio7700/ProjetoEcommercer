@@ -64,14 +64,15 @@
 			<div class="input-group">
 				<form:form action="${s:mvcUrl('HC#buscaTitulo').build()}"
 					method="POST" modelAttribute="livro">
-					<form:input path="titulo" class="form-control" placeholder="Search"
-						style="width: 450px;" />
+					<div class="input-group mb-3">
+					<form:input path="titulo" class="form-control" placeholder="Search" style="width: 350px;" />
 
-					<button class="btn btn-outline-secondary" type="submit">Search</button>
+					<button class="btn btn-outline-secondary" type="submit"><img src="/resources/imgCSS/icone4.png"
+								style="width: 25px;" /></button>
+					</div>
 
 				</form:form>
 			</div>
-
 
 			<a href="/" class="link-logo" style="color: white;"><span class="navbar-brand mb-0 h1">BOOKFLIX</span></a>
 		</div>

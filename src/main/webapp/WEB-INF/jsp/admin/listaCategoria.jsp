@@ -21,9 +21,7 @@
 	<header>
 		<nav class="navbar bg-dark navbar-dark">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#"> <img
-					src="/resources/imgCSS/imgLogo.jpg" style="width: 50px;" />
-				</a>
+				<a href="/" class="link-logo" style="color: white;"><span class="navbar-brand mb-0 h1">BOOKFLIX</span></a>
 
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#menu"
