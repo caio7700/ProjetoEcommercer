@@ -101,8 +101,8 @@ public class LivroController {
 	}
 
 	@PostMapping("/admin/editarLivro")
-	public ModelAndView updateLivro(MultipartFile foto1, @Valid Livro livro, BindingResult bindingResult,
-			RedirectAttributes redirectAttributes) {
+	public ModelAndView updateLivro(@Valid Livro livro, BindingResult bindingResult,
+			RedirectAttributes redirectAttributes, MultipartFile foto1) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("redirect:/admin/listalivro");
 

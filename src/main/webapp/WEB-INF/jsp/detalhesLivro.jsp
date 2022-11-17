@@ -132,49 +132,55 @@
 
 		<div class="container">
 			<div class="row" style="padding-top: 50px;">
-				<c:forEach items="${livros}" var="livro">
-					<div
-						class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
-						<div class="card text-center bg-light">
-							<a href="${s:mvcUrl('DLC#detalhes').arg(0, livro.id).build() }">
-								<img src="/${livro.foto}" class="card-img-top">
-							</a>
-							<div class="card-header">
-								<h5>R$ ${livro.preco}</h5>
-							</div>
-							<div class="card-body">
-								<h5 class="card-title">${livro.titulo}</h5>
-							</div>
-							<div class="card-footer">
-								<form class="d-block">
-									<button class="btn btn-dark">Comprar</button>
-								</form>
-								<div>
-									<a href="${s:mvcUrl('DLC#detalhes').arg(0, livro.id).build() }"><h6>Detalhes</h6></a>
-								</div>
-							</div>
+				<div class="col-sm-15 d-flex align-items-stretch">
+					<div class="card text-center bg-light">
+						<img src="/${livro.foto}" class="card-img-top">
+						<div class="card-header">
+							<h5>R$ ${livro.preco}</h5>
+						</div>
+						<div class="card-body">
+							<h5 class="card-title">${livro.titulo}</h5>
+						</div>
+						<div class="card-footer">
+							<form class="d-block">
+								<button class="btn btn-dark">Comprar</button>
+							</form>
 						</div>
 					</div>
-				</c:forEach>
-
-				<c:if test="${empty livros}">
-					<div class="card">
-						<div class="row"
-							style="padding: 150px 50px 50px 100px; background: black; height: 500px;">
-							<h1 style="margin: center; color: red;">Não foi encontrado
-								nenhum livro com esse nome !</h1>
-							<a href="/"><button class="btn btn-outline-danger btn-lg"
-									style="padding: 50px 560px 50px 250px;">
-									<h1>Voltar</h1>
-								</button></a>
+					<div style="padding-left: 15px;">
+						<div>
+							<h2>
+								<b>Descrição</b>
+							</h2>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nemo
+							molestiae animi recusandae, iusto, vero ea expedita veniam dolore
+							earum accusantium veritatis nulla, atque quibusdam tenetur at
+							tempora quisquam laboriosam.
+						</div>
+						<div>
+							<h2>
+								<b>Categoria</b>
+							</h2>
+							${livro.categoria.nome}
+						</div>
+						<div>
+							<h2>
+								<b>Autor</b>
+							</h2>
+							${livro.autor.nome}
+						</div>
+						<div>
+							<h2>
+								<b>Editora</b>
+							</h2>
+							${livro.editora.nome}
 						</div>
 					</div>
-				</c:if>
+				</div>
 			</div>
 
 		</div>
 	</main>
-
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
