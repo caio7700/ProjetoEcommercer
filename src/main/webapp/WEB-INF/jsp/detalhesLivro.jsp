@@ -132,6 +132,7 @@
 
 		<div class="container">
 			<div class="row" style="padding-top: 50px;">
+			<h4 style="color: dark; padding-bottom: 20px;">${msg}</h4>
 				<div class="col-sm-15 d-flex align-items-stretch">
 					<div class="card text-center bg-light">
 						<img src="/${livro.foto}" class="card-img-top">
@@ -143,7 +144,7 @@
 						</div>
 						<div class="card-footer">
 							<form class="d-block">
-								<button class="btn btn-dark">Comprar</button>
+								<button class="btn btn-dark" style="width: 150px; height: 50px;">Comprar</button>
 							</form>
 						</div>
 					</div>

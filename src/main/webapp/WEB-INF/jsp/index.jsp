@@ -132,6 +132,7 @@
 
 		<div class="container">
 			<div class="row" style="padding-top: 50px;">
+			<h4 style="color: dark; padding-bottom: 20px;">${msg}</h4>
 				<c:forEach items="${livros}" var="livro">
 					<div
 						class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">

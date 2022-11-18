@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project_ecommerce_cm.entity.Autor;
 import com.project_ecommerce_cm.entity.Categoria;
@@ -36,6 +37,7 @@ public class HomeController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("index");
 		modelAndView.addObject("livros", livroRepository.findByDestaqueTrue());
+		modelAndView.addObject("msg", "Livros em Destaque");
 		menuLista(modelAndView);
 		return modelAndView;
 	}
@@ -51,36 +53,40 @@ public class HomeController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("index");
 		modelAndView.addObject("livros", livroRepository.findByTituloContainingIgnoreCase(livro.getTitulo()));
+		modelAndView.addObject("msg", "Livros filtrados pelo Titulo: " + livro.getTitulo());
 		menuLista(modelAndView);
 		return modelAndView;
 	}
 	
 	@GetMapping("/buscarAutor/{id}")
-	public ModelAndView buscaPorAutor(@PathVariable("id") Integer id, Livro livro){
+	public ModelAndView buscaPorAutor(@PathVariable("id") Integer id, Livro livro, RedirectAttributes redirectAttributes){
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("index");
 		Autor autor = autorRepository.getById(id);
 		modelAndView.addObject("livros", livroRepository.findByAutor(autor));
+		modelAndView.addObject("msg", "Livros filtrados por Autor: " + autor.getNome());
 		menuLista(modelAndView);
 		return modelAndView;
 	}
 	
 	@GetMapping("/buscarCategoria/{id}")
-	public ModelAndView buscaPorCategoria(@PathVariable("id") Integer id, Livro livro){
+	public ModelAndView buscaPorCategoria(@PathVariable("id") Integer id, Livro livro, RedirectAttributes redirectAttributes){
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("index");
 		Categoria categoria = categoriaRepository.getById(id);
 		modelAndView.addObject("livros", livroRepository.findByCategoria(categoria));
 		menuLista(modelAndView);
+		modelAndView.addObject("msg", "Livros filtrados por Categoria: " + categoria.getNome());
 		return modelAndView;
 	}
 	@GetMapping("/buscarEditora/{id}")
-	public ModelAndView buscaPorEditora(@PathVariable("id") Integer id, Livro livro){
+	public ModelAndView buscaPorEditora(@PathVariable("id") Integer id, Livro livro, RedirectAttributes redirectAttributes){
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("index");
 		Editora editora = editoraRepository.getById(id);
 		modelAndView.addObject("livros", livroRepository.findByEditora(editora));
 		menuLista(modelAndView);
+		modelAndView.addObject("msg", "Livros filtrados por Editoras: " + editora.getNome());
 		return modelAndView;
 	}
 }

@@ -36,6 +36,7 @@ public class DetalhesLivroController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("detalhesLivro");
 		modelAndView.addObject("livro", livroRepository.getById(id));
+		modelAndView.addObject("msg", "Detalhes do Livro:");
 		menuListaDLC(modelAndView);
 		return modelAndView;
 	}
