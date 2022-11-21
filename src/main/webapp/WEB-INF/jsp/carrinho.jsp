@@ -18,7 +18,7 @@
 	rel="stylesheet"
 	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
 	crossorigin="anonymous">
-<title>Document</title>
+<title>BooKFliX</title>
 
 <style>
 .modal {
@@ -134,57 +134,42 @@
 	</div>
 
 	<main>
-
 		<div class="container">
-			<div class="row" style="padding-top: 50px;">
-				<h4 style="color: dark; padding-bottom: 20px;">${msg}</h4>
-				<div class="col-sm-15 d-flex align-items-stretch">
-					<div class="card text-center bg-light">
-						<img src="/${livro.foto}" class="card-img-top">
-						<div class="card-header">
+			<h4 style="color: dark; padding-bottom: 20px;">${msg}</h4>
+			<hr>
+			<ul class="list-group mb-3">
+				<li class="list-group-item py-3">
+					<div class="row g-3">
+						<div class="col-4 col-md-3 col-lg-2">
+							<img src="/${livro.foto}" class="card-img-top">
+						</div>
+						<div
+							class="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-center">
+							<h4>
+								<b><h5 class="card-title">${livro.titulo}</h5></b>
+							</h4>
+						</div>
+						<div
+							class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg0 col-xl-2 align-self-center mt-3">
+							<div class="input-group">
+								<button type="button" class="btn btn-outline-dark btn-sm">
+									<img src="/resources/imgCSS/setaDown.png" />
+								</button>
+								<input type="text" class="form-control text -center border-dark"/>
+								<button type="button" class="btn btn-outline-dark btn-sm">
+									<img src="/resources/imgCSS/setaTop.png" />
+								</button>
+								<button type="button" class="btn btn-outline-danger border-dark btn-sm">
+									<img src="/resources/imgCSS/trash.png" />
+								</button>
+							</div>
+							<div class="text-right mt-2">
 							<h5>R$ ${livro.preco}</h5>
-						</div>
-						<div class="card-body">
-							<h5 class="card-title">${livro.titulo}</h5>
-						</div>
-						<div class="card-footer">
-							<form class="d-block">
-								<button class="btn btn-dark" style="width: 150px; height: 50px;">Comprar</button>
-							</form>
+							</div>
 						</div>
 					</div>
-					<div style="padding-left: 15px;">
-						<div>
-							<h2>
-								<b>Descrição</b>
-							</h2>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nemo
-							molestiae animi recusandae, iusto, vero ea expedita veniam dolore
-							earum accusantium veritatis nulla, atque quibusdam tenetur at
-							tempora quisquam laboriosam.
-						</div>
-						<div>
-							<h2>
-								<b>Categoria</b>
-							</h2>
-							${livro.categoria.nome}
-						</div>
-						<div>
-							<h2>
-								<b>Autor</b>
-							</h2>
-							${livro.autor.nome}
-						</div>
-						<div>
-							<h2>
-								<b>Editora</b>
-							</h2>
-							${livro.editora.nome}
-						</div>
-					</div>
-				</div>
-			</div>
-
+				</li>
+			</ul>
 		</div>
 	</main>
 

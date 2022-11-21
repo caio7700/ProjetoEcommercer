@@ -13,8 +13,9 @@ import com.project_ecommerce_cm.repository.EditoraRepository;
 import com.project_ecommerce_cm.repository.LivroRepository;
 
 @Controller
-public class DetalhesLivroController {
+public class CarroCompraController {
 
+	
 	@Autowired
 	AutorRepository autorRepository;
 	
@@ -27,12 +28,12 @@ public class DetalhesLivroController {
 	@Autowired
 	LivroRepository livroRepository;
 	
-	@GetMapping("/detalheslivro/{id}")
-	public ModelAndView detalhes(@PathVariable("id") Integer id, Livro livro){
+	@GetMapping("/carrinho/{id}")
+	public ModelAndView carro(@PathVariable("id") Integer id, Livro livro){
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("detalhesLivro");
+		modelAndView.setViewName("carrinho");
 		modelAndView.addObject("livro", livroRepository.getById(id));
-		modelAndView.addObject("msg", "Detalhes do Livro:");
+		modelAndView.addObject("msg", "Carrinho de Compras:");
 		menuListaDLC(modelAndView);
 		return modelAndView;
 	}
@@ -42,5 +43,4 @@ public class DetalhesLivroController {
 		modelAndView.addObject("categorias", categoriaRepository.findAll());
 		modelAndView.addObject("editoras", editoraRepository.findAll());
 	}
-	
 }

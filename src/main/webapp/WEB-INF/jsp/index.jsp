@@ -13,6 +13,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -62,10 +64,16 @@
 				data-bs-target="#exampleModal">
 				<span class="navbar-toggler-icon"></span>
 			</button>
+
 			<div class="input-group">
 				<form:form action="${s:mvcUrl('HC#buscaTitulo').build()}"
 					method="POST" modelAttribute="livro">
 					<div class="input-group mb-3">
+
+						<button class="btn btn-outline-secondary" type="button">
+						    <a href="href="${s:mvcUrl('CCC#carro').arg(0, livro.id).build() }"" ><img src="/resources/imgCSS/carro.png" style="width: 25px;" /></a>
+						</button>
+						
 						<form:input path="titulo" class="form-control"
 							placeholder="Search" style="width: 350px;" />
 
@@ -132,7 +140,7 @@
 
 		<div class="container">
 			<div class="row" style="padding-top: 50px;">
-			<h4 style="color: dark; padding-bottom: 20px;">${msg}</h4>
+				<h4 style="color: dark; padding-bottom: 20px;">${msg}</h4>
 				<c:forEach items="${livros}" var="livro">
 					<div
 						class="col-xl-2 col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
