@@ -33,5 +33,21 @@ public class EditoraControllerAPI {
 	public void cadastrarEditora(Editora editora) {
 		editoraRepository.save(editora);
 	}
+	@PutMapping("/update/{id}")
+	public Editora update(@PathVariable Integer id, @RequestBody Editora body) {
+		var antigaEditora = editoraRepository.findById(id).get();
 
+		antigaEditora.setDescricao(body.getDescricao());
+		editoraRepository.save(antigaEditora);
+		return antigaEditora;
+
+	}
+
+	@DeleteMapping("/delete/{id}")
+	public void delete(@PathVariable Integer id) {
+		editoraRepository.deleteById(id);
+	}
 }
+
+
+

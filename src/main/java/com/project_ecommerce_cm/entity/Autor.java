@@ -45,11 +45,11 @@ public class Autor {
 		return "Autor [id=" + id + ", nome=" + nome + ", ativo=" + ativo + "]";
 	}
 
-	public Object getDescricao() {
+	public String getDescricao() {
 		return null;
 	}
 
-	public void setDescricao(Object descricao) {
+	public void setDescricao(String descricao) {
 
 	}
 
