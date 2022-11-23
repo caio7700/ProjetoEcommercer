@@ -146,7 +146,7 @@
 						<div
 							class="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-center">
 							<h4>
-								<b><h5 class="card-title">${livro.titulo}</h5></b>
+								<h5><b>${livro.titulo}</b></h5>
 							</h4>
 						</div>
 						<div

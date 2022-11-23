@@ -12,7 +12,7 @@ import com.project_ecommerce_cm.entity.Livro;
 import com.project_ecommerce_cm.repository.LivroRepository;
 
 @RestController
-@RequestMapping("/api/ecommerce/admin")
+@RequestMapping("/api/ecommerce/admin/livro")
 public class LivroControllerAPI {
 
 	@Autowired

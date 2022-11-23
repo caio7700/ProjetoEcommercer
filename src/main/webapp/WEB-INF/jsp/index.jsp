@@ -71,7 +71,7 @@
 					<div class="input-group mb-3">
 
 						<button class="btn btn-outline-secondary" type="button">
-						    <a href="href="${s:mvcUrl('CCC#carro').arg(0, livro.id).build() }"" ><img src="/resources/imgCSS/carro.png" style="width: 25px;" /></a>
+						    <a href="href="${s:mvcUrl('CCC#CarrinhoCompras').arg(0, livro.id).build() }"" ><img src="/resources/imgCSS/carro.png" style="width: 25px;" /></a>
 						</button>
 						
 						<form:input path="titulo" class="form-control"
