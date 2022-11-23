@@ -6,7 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
-
 @Entity
 public class Categoria {
 	@Id
@@ -15,23 +14,38 @@ public class Categoria {
 	@NotBlank
 	private String nome;
 	private boolean ativo = true;
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public boolean isAtivo() {
 		return ativo;
 	}
+
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
+	}
+
+	public String getDescricao() {
+		return getDescricao();
+	}
+
+	public void setDescricao(String categoria) {
+		this.setDescricao(categoria);
+
 	}
 
 }

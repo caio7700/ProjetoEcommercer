@@ -1,5 +1,7 @@
 package com.project_ecommerce_cm.entity;
 
+import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -92,6 +94,21 @@ public class Livro {
 	}
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Livro other = (Livro) obj;
+		return Objects.equals(id, other.id);
 	}
 
 	

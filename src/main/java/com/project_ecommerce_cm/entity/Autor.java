@@ -13,7 +13,7 @@ public class Autor {
 	private int id;
 	@NotBlank
 	private String nome;
-	
+
 	private boolean ativo = true;
 
 	public int getId() {
@@ -44,7 +44,13 @@ public class Autor {
 	public String toString() {
 		return "Autor [id=" + id + ", nome=" + nome + ", ativo=" + ativo + "]";
 	}
-	
-	
+
+	public Object getDescricao() {
+		return null;
+	}
+
+	public void setDescricao(Object descricao) {
+
+	}
 
 }

@@ -45,6 +45,4 @@ public class Editora {
 		return "Editora [id=" + id + ", nome=" + nome + ", ativo=" + ativo + "]";
 	}
 	
-	
-	
 }
