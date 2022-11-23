@@ -17,7 +17,7 @@ import com.project_ecommerce_cm.entity.Categoria;
 import com.project_ecommerce_cm.repository.CategoriaRepository;
 
 @RestController
-@RequestMapping("/api/ecommerce/admin")
+@RequestMapping("/api/ecommerce/admin/categoria")
 public class CategoriaControllerAPI {
 
 	@Autowired

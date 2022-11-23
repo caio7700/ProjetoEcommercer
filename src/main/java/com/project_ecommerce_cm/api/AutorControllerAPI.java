@@ -16,7 +16,7 @@ import com.project_ecommerce_cm.entity.Autor;
 import com.project_ecommerce_cm.repository.AutorRepository;
 
 @RestController
-@RequestMapping("/api/ecommerce/admin")
+@RequestMapping("/api/ecommerce/admin/autor")
 public class AutorControllerAPI {
 
 	@Autowired

@@ -17,7 +17,7 @@ import com.project_ecommerce_cm.entity.Editora;
 import com.project_ecommerce_cm.repository.EditoraRepository;
 
 @RestController
-@RequestMapping("/api/ecommerce/admin")
+@RequestMapping("/api/ecommerce/admin/editora")
 public class EditoraControllerAPI {
 
 	@Autowired
