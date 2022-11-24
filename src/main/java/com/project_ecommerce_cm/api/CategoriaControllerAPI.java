@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.project_ecommerce_cm.entity.Autor;
 import com.project_ecommerce_cm.entity.Categoria;
 import com.project_ecommerce_cm.repository.CategoriaRepository;
 
