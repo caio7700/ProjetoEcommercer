@@ -27,6 +27,7 @@ public class CarrinhoComprasController {
 		ModelAndView modelAndView = new ModelAndView("carrinhoCompras");
 		Livro livro = livroRepository.getById(id);
 		carrinhoCompras.adicionarLivro(livro);
+		modelAndView.setViewName("carrinho");
 		modelAndView.addObject("livrosCarrinho", carrinhoCompras.getLivros());
 		return modelAndView;
 	}

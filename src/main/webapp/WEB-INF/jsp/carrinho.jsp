@@ -62,25 +62,7 @@
 				data-bs-target="#exampleModal">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="input-group">
-				<form:form action="${s:mvcUrl('HC#buscaTitulo').build()}"
-					method="POST" modelAttribute="livro">
-					<div class="input-group mb-3">
-						<button class="btn btn-outline-secondary" type="button">
-							<a href="#"><img src="/resources/imgCSS/carro.png"
-								style="width: 25px;" /></a>
-						</button>
 
-						<form:input path="titulo" class="form-control"
-							placeholder="Search" style="width: 350px;" />
-
-						<button class="btn btn-outline-secondary" type="submit">
-							<img src="/resources/imgCSS/icone4.png" style="width: 25px;" />
-						</button>
-					</div>
-
-				</form:form>
-			</div>
 
 			<a href="/" class="link-logo" style="color: white;"><span
 				class="navbar-brand mb-0 h1">BOOKFLIX</span></a>
@@ -134,39 +116,46 @@
 	</div>
 
 	<main>
+
 		<div class="container">
 			<h4 style="color: dark; padding-bottom: 20px;">${msg}</h4>
 			<hr>
 			<ul class="list-group mb-3">
 				<li class="list-group-item py-3">
 					<div class="row g-3">
-						<div class="col-4 col-md-3 col-lg-2">
-							<img src="/${livro.foto}" class="card-img-top">
-						</div>
-						<div
-							class="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-center">
-							<h4>
-								<h5><b>${livro.titulo}</b></h5>
-							</h4>
-						</div>
-						<div
-							class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg0 col-xl-2 align-self-center mt-3">
-							<div class="input-group">
-								<button type="button" class="btn btn-outline-dark btn-sm">
-									<img src="/resources/imgCSS/setaDown.png" />
-								</button>
-								<input type="text" class="form-control text -center border-dark"/>
-								<button type="button" class="btn btn-outline-dark btn-sm">
-									<img src="/resources/imgCSS/setaTop.png" />
-								</button>
-								<button type="button" class="btn btn-outline-danger border-dark btn-sm">
-									<img src="/resources/imgCSS/trash.png" />
-								</button>
+						<c:forEach items="${livrosCarrinho}" var="livro">
+							<div class="col-4 col-md-3 col-lg-2">
+								<img src="/${livro.foto}" class="card-img-top">
 							</div>
-							<div class="text-right mt-2">
-							<h5>R$ ${livro.preco}</h5>
+							<div
+								class="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-center">
+								<h4>
+									<h5>
+										<b>${livro.titulo}</b>
+									</h5>
+								</h4>
 							</div>
-						</div>
+							<div
+								class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg0 col-xl-2 align-self-center mt-3">
+								<div class="input-group">
+									<button type="button" class="btn btn-outline-dark btn-sm">
+										<img src="/resources/imgCSS/setaDown.png" />
+									</button>
+									<input type="text"
+										class="form-control text -center border-dark" />
+									<button type="button" class="btn btn-outline-dark btn-sm">
+										<img src="/resources/imgCSS/setaTop.png" />
+									</button>
+									<button type="button"
+										class="btn btn-outline-danger border-dark btn-sm">
+										<img src="/resources/imgCSS/trash.png" />
+									</button>
+								</div>
+								<div class="text-right mt-2">
+									<h5>R$ ${livro.preco}</h5>
+								</div>
+							</div>
+						</c:forEach>
 					</div>
 				</li>
 			</ul>
