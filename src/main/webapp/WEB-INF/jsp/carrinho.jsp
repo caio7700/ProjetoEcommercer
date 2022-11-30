@@ -29,12 +29,6 @@
 	width: 300px;
 }
 
-.list-group-item:hover {
-	cursor: pointer;
-	background-color: rgb(37, 37, 104);
-	color: white;
-	transition: 0.5s;
-}
 
 .modal-header {
 	background-color: rgb(37, 37, 104);
@@ -118,46 +112,51 @@
 	<main>
 
 		<div class="container">
-			<h4 style="color: dark; padding-bottom: 20px;">${msg}</h4>
+			<h4 style="color: dark; padding-top: 20px; padding-bottom: 20px;">Carrinho
+				de Compras</h4>
 			<hr>
 			<ul class="list-group mb-3">
-				<li class="list-group-item py-3">
-					<div class="row g-3">
-						<c:forEach items="${livrosCarrinho}" var="livro">
+				<c:forEach items="${livrosCarrinho}" var="livro">
+					<li class="list-group-item py-3">
+
+						<div class="row g-3">
 							<div class="col-4 col-md-3 col-lg-2">
 								<img src="/${livro.foto}" class="card-img-top">
 							</div>
 							<div
 								class="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-center">
 								<h4>
-									<h5>
-										<b>${livro.titulo}</b>
-									</h5>
+
+									<b>${livro.titulo}</b>
+
 								</h4>
 							</div>
 							<div
-								class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg0 col-xl-2 align-self-center mt-3">
+								class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-0 col-xl-2 align-self-center mt-3" style="width: 800px;">
 								<div class="input-group">
 									<button type="button" class="btn btn-outline-dark btn-sm">
-										<img src="/resources/imgCSS/setaDown.png" />
+										<img src="/resources/imgCSS/setaDown.png" style="width: 25px;" />
 									</button>
 									<input type="text"
 										class="form-control text -center border-dark" />
 									<button type="button" class="btn btn-outline-dark btn-sm">
-										<img src="/resources/imgCSS/setaTop.png" />
+										<img src="/resources/imgCSS/setaTop.png" style="width: 25px;" />
 									</button>
 									<button type="button"
 										class="btn btn-outline-danger border-dark btn-sm">
-										<img src="/resources/imgCSS/trash.png" />
+										<a href="${s:mvcUrl('CCC#remover').arg(0, livro.id).build() }"><img
+											src="/resources/imgCSS/trash.png" style="width: 25px;" /></a>
 									</button>
 								</div>
 								<div class="text-right mt-2">
 									<h5>R$ ${livro.preco}</h5>
 								</div>
 							</div>
-						</c:forEach>
-					</div>
-				</li>
+
+						</div>
+					</li>
+				</c:forEach>
+
 			</ul>
 		</div>
 	</main>

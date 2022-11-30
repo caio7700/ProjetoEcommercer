@@ -71,7 +71,7 @@
 					<div class="input-group mb-3">
 
 						<button class="btn btn-outline-secondary" type="button">
-							<a href="href="${s:mvcUrl('CCC#CarrinhoCompras').arg(0, livro.id).build() }"" ><img
+							<a href="${s:mvcUrl('CCC#carrinhoCompras').arg(0, livro.id).build() }" ><img
 								src="/resources/imgCSS/carro.png" style="width: 25px;" /></a>
 						</button>
 
@@ -158,7 +158,7 @@
 							<div class="card-footer">
 								<form class="d-block">
 									<button class="btn btn-dark">
-										<a href="${s:mvcUrl('CCC#CarrinhoCompras').arg(0, livro.id).build() }"
+										<a href="${s:mvcUrl('CCC#carrinhoCompras').arg(0, livro.id).build() }"
 											class="a">Adicionar ao Carrinho</a>
 									</button>
 								</form>
