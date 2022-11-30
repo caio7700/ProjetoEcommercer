@@ -46,6 +46,8 @@ public class AutorControllerAPI {
 
 	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable Integer id) {
+		var autor = autorRepository.findById(id).get();
+		autor.setAtivo(false);
 		autorRepository.deleteById(id);
 	}
 }

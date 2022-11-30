@@ -1,5 +1,6 @@
 package com.project_ecommerce_cm.Component;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -20,21 +21,42 @@ public class CarrinhoCompras {
 		return livros.keySet();
 	}
 
-	public void adicionarLivro(Livro criaLivro) {
-		livros.put(criaLivro, getQuantidade(criaLivro));
+	public void adicionarLivro(Livro livro) {
+		livros.put(livro, getQuantidade(livro));
 	}
 
-	private int getQuantidade(Livro livro) {
+	private Integer getQuantidade(Livro livro) {
 		if (!livros.containsKey(livro)) {
 			return 1;
-		} else {
+		} else
 			return livros.get(livro) + 1;
-		}
+	}
 
+	public Integer getQuantidadeInteger(Livro livro) {
+		if (!livros.containsKey(livro))
+			return 1;
+		else
+			return livros.get(livro);
+
+	}
+
+	public Double getQuantidadeLivros(Livro livro) {
+		return livro.getPreco()*getQuantidadeInteger(livro);
+	}
+
+	public Double getValorTotal() {
+		Double total = 0.00;
+		for (Livro livro : livros.keySet()) {
+			total = total;
+		}
+		return total;
 	}
 
 	public void removerLivro(Livro livro) {
 		livros.remove(livro);
-		
+	}
+
+	public void update(Livro livro, Integer quantidade) {
+		livros.put(livro, quantidade);
 	}
 }

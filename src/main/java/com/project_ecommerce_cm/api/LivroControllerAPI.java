@@ -31,6 +31,7 @@ public class LivroControllerAPI {
 	public void cadastrarLivro(Livro livro) {
 		livroRepository.save(livro);
 	}
+
 	@PutMapping("/update/{id}")
 	public Livro update(@PathVariable Integer id, @RequestBody Livro body) {
 		var antigoLivro = livroRepository.findById(id).get();
@@ -43,7 +44,9 @@ public class LivroControllerAPI {
 
 	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable Integer id) {
-		livroRepository.deleteById(id);
+		var livro = livroRepository.findById(id).get();
+		livro.setAtivo(false);
+		livro.setDestaque(false);
+		livroRepository.save(livro);
 	}
 }
-
