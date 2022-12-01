@@ -53,7 +53,8 @@ public class CarrinhoCompras {
 	}
 
 	public void removerLivro(Livro livro) {
-		livros.remove(livro);
+		if(livros.containsKey(livro))
+			livros.remove(livro);
 	}
 
 	public void update(Livro livro, Integer quantidade) {

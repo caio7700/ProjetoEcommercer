@@ -33,39 +33,32 @@ public class CarrinhoComprasController {
 	@Autowired
 	com.project_ecommerce_cm.Component.CarrinhoCompras carrinhoCompras;
 	
-//	@GetMapping("/carrinho")
-//	public ModelAndView carrinhoCompras() {
-//		ModelAndView modelAndView = new ModelAndView("carrinhoCompras");
-//		modelAndView.setViewName("carrinho");
-//		return modelAndView;
-//	}
+	@GetMapping("/carrinho")
+	public ModelAndView carrinhoCompra() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("livrosCarrinho", carrinhoCompras.getLivros());
+		modelAndView.setViewName("carrinho");
+		return modelAndView;
+	}
 
 	@GetMapping("/carrinho/{id}")
 	public ModelAndView carrinhoCompras(@PathVariable("id") Integer id) {
 
-		ModelAndView modelAndView = new ModelAndView("carrinhoCompras");
-		Livro livro = livroRepository.getById(id);
+		ModelAndView modelAndView = new ModelAndView("redirect:/carrinho");
+		Livro livro = livroRepository.findById(id).get();
 		carrinhoCompras.adicionarLivro(livro);
-		modelAndView.setViewName("carrinho");
-		modelAndView.addObject("livrosCarrinho", carrinhoCompras.getLivros());
-		menuListaCCC(modelAndView);
 		return modelAndView;
 	}
 	
 	@GetMapping("/carrinhoremover/{id}")
 	public ModelAndView remover(@PathVariable("id") Integer id) {
 
-		ModelAndView modelAndView = new ModelAndView("carrinhoCompras");
-		Livro livro = livroRepository.getById(id);
+		ModelAndView modelAndView = new ModelAndView("redirect:/carrinho");
+		Livro livro = livroRepository.findById(id).get();
 		carrinhoCompras.removerLivro(livro);
 		
 		return modelAndView;
 	}
 	
-	private void menuListaCCC(ModelAndView modelAndView) {
-		modelAndView.addObject("autores", autorRepository.findAll());
-		modelAndView.addObject("categorias", categoriaRepository.findAll());
-		modelAndView.addObject("editoras", editoraRepository.findAll());
-	}
 
 }
