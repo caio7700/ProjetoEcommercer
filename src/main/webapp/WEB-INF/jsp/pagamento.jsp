@@ -18,7 +18,7 @@
 	rel="stylesheet"
 	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
 	crossorigin="anonymous">
-<title>Detalhes do Livro</title>
+<title>Pagamento</title>
 
 <style>
 .modal {
@@ -27,13 +27,6 @@
 
 .modal-content {
 	width: 300px;
-}
-
-.list-group-item:hover {
-	cursor: pointer;
-	background-color: rgb(37, 37, 104);
-	color: white;
-	transition: 0.5s;
 }
 
 .modal-header {
@@ -62,25 +55,7 @@
 				data-bs-target="#exampleModal">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="input-group">
-				<form:form action="${s:mvcUrl('HC#buscaTitulo').build()}"
-					method="POST" modelAttribute="livro">
-					<div class="input-group mb-3">
-						<button class="btn btn-outline-secondary" type="button">
-							<a href="#"><img src="/resources/imgCSS/carro.png"
-								style="width: 25px;" /></a>
-						</button>
 
-						<form:input path="titulo" class="form-control"
-							placeholder="Search" style="width: 350px;" />
-
-						<button class="btn btn-outline-secondary" type="submit">
-							<img src="/resources/imgCSS/icone4.png" style="width: 25px;" />
-						</button>
-					</div>
-
-				</form:form>
-			</div>
 
 			<a href="/" class="link-logo" style="color: white;"><span
 				class="navbar-brand mb-0 h1">BOOKFLIX</span></a>
@@ -136,55 +111,38 @@
 	<main>
 
 		<div class="container">
-			<div class="row" style="padding-top: 50px;">
-				<h4 style="color: dark; padding-bottom: 20px;">${msg}</h4>
-				<div class="col-sm-15 d-flex align-items-stretch">
-					<div class="card text-center bg-light">
-						<img src="/${livro.foto}" class="card-img-top">
-						<div class="card-header">
-							<h5>R$ ${livro.preco}</h5>
-						</div>
-						<div class="card-body">
-							<h5 class="card-title">${livro.titulo}</h5>
-						</div>
-						<div class="card-footer">
-							<form class="d-block">
-								<button class="btn btn-dark" style="width: 150px; height: 50px;">Comprar</button>
-							</form>
-						</div>
-					</div>
-					<div style="padding-left: 15px;">
-						<div>
-							<h2>
-								<b>Descrição</b>
-							</h2>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nemo
-							molestiae animi recusandae, iusto, vero ea expedita veniam dolore
-							earum accusantium veritatis nulla, atque quibusdam tenetur at
-							tempora quisquam laboriosam.
-						</div>
-						<div>
-							<h2>
-								<b>Categoria</b>
-							</h2>
-							${livro.categoria.nome}
-						</div>
-						<div>
-							<h2>
-								<b>Autor</b>
-							</h2>
-							${livro.autor.nome}
-						</div>
-						<div>
-							<h2>
-								<b>Editora</b>
-							</h2>
-							${livro.editora.nome}
-						</div>
-					</div>
-				</div>
-			</div>
+			<h4 style="color: dark; padding-top: 20px; padding-bottom: 20px;">Livros Comprados do pedido : ${numeroPedido} </h4>
+			<hr>
+			<ul class="list-group mb-3">
+				<c:forEach items="${livrosPagos}" var="livro">
+					<li class="list-group-item py-3">
 
+						<div class="row g-3">
+							<div class="col-4 col-md-3 col-lg-2">
+								<img src="/${livro.foto}" class="card-img-top">
+							</div>
+							<div
+								class="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-center">
+								<h4>
+
+									<b>${livro.titulo}</b>
+
+								</h4>
+							</div>
+							<div
+								class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-0 col-xl-2 align-self-center mt-3"
+								style="width: 800px;">
+
+								<div class="text-right mt-2">
+									<h5>R$ ${livro.preco}</h5>
+								</div>
+							</div>
+
+						</div>
+					</li>
+				</c:forEach>
+
+			</ul>
 		</div>
 	</main>
 

@@ -18,7 +18,7 @@
 	rel="stylesheet"
 	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
 	crossorigin="anonymous">
-<title>BooKFliX</title>
+<title>Carrinho</title>
 
 <style>
 .modal {
@@ -28,7 +28,6 @@
 .modal-content {
 	width: 300px;
 }
-
 
 .modal-header {
 	background-color: rgb(37, 37, 104);
@@ -132,7 +131,8 @@
 								</h4>
 							</div>
 							<div
-								class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-0 col-xl-2 align-self-center mt-3" style="width: 800px;">
+								class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-0 col-xl-2 align-self-center mt-3"
+								style="width: 800px;">
 								<div class="input-group">
 									<button type="button" class="btn btn-outline-dark btn-sm">
 										<img src="/resources/imgCSS/setaDown.png" style="width: 25px;" />
@@ -158,6 +158,9 @@
 				</c:forEach>
 
 			</ul>
+			<button class="btn btn-outline-success">
+				<a href="${s:mvcUrl('CCC#pagamento').build() }">Pagar</a>
+			</button>
 		</div>
 	</main>
 

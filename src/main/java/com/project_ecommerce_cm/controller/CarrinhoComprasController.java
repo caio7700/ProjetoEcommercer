@@ -1,5 +1,13 @@
 package com.project_ecommerce_cm.controller;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
+import java.util.UUID;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -33,6 +41,8 @@ public class CarrinhoComprasController {
 	@Autowired
 	com.project_ecommerce_cm.Component.CarrinhoCompras carrinhoCompras;
 	
+	Random gerador = new Random();
+	
 	@GetMapping("/carrinho")
 	public ModelAndView carrinhoCompra() {
 		ModelAndView modelAndView = new ModelAndView();
@@ -56,6 +66,30 @@ public class CarrinhoComprasController {
 		ModelAndView modelAndView = new ModelAndView("redirect:/carrinho");
 		Livro livro = livroRepository.findById(id).get();
 		carrinhoCompras.removerLivro(livro);
+		
+		return modelAndView;
+	}
+	
+//	@GetMapping("/add")
+//	public ModelAndView add(@PathVariable Integer id, Tipo tipo) {
+//		ModelAndView modelAndView = new ModelAndView("redirect:/carrinho");
+//		carrinhoCompras.adicionarLivro(criaLivro(livroId, tipo));
+//		modelAndView.addObject("livrosCarrinho", carrinhoCompras.getLivros());
+//
+//		return modelAndView;
+//	}
+	
+	
+	@GetMapping("/pagamento")
+	public ModelAndView pagamento() {
+		List<Livro> livros = new ArrayList<Livro>();
+		ModelAndView modelAndView = new ModelAndView("/pagamento");
+		UUID uuid = UUID.randomUUID();
+		modelAndView.addObject("numeroPedido", uuid);
+		Collection<Livro> livrosComprados = carrinhoCompras.getLivros();
+	    livrosComprados.forEach(livro-> livros.add(livro));
+		modelAndView.addObject("livrosPagos", livros);
+		carrinhoCompras.limparCarrinho();
 		
 		return modelAndView;
 	}

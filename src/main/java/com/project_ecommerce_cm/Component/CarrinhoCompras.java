@@ -1,6 +1,5 @@
 package com.project_ecommerce_cm.Component;
 
-import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -59,5 +58,10 @@ public class CarrinhoCompras {
 
 	public void update(Livro livro, Integer quantidade) {
 		livros.put(livro, quantidade);
+	}
+
+	public void limparCarrinho() {
+		livros.clear();
+		
 	}
 }
