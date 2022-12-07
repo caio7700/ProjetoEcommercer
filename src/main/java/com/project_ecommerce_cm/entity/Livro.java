@@ -32,6 +32,10 @@ public class Livro {
 	private Double preco;
 	private boolean destaque;
 	private boolean ativo;
+	
+	public double subtotal(int quantidade) {
+		return this.preco*quantidade;
+	}
 
 	public Integer getId() {
 		return id;

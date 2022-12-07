@@ -71,7 +71,8 @@
 					<div class="input-group mb-3">
 
 						<button class="btn btn-outline-secondary" type="button">
-							<a href="${s:mvcUrl('CCC#carrinhoCompras').arg(0, livro.id).build() }" ><img
+							<a
+								href="${s:mvcUrl('CCC#carrinhoCompras').arg(0, livro.id).build() }"><img
 								src="/resources/imgCSS/carro.png" style="width: 25px;" /></a>
 						</button>
 
@@ -158,7 +159,8 @@
 							<div class="card-footer">
 								<form class="d-block">
 									<button class="btn btn-dark">
-										<a href="${s:mvcUrl('CCC#carrinhoCompras').arg(0, livro.id).build() }"
+										<a
+											href="${s:mvcUrl('CCC#carrinhoCompras').arg(0, livro.id).build() }"
 											class="a">Adicionar ao Carrinho</a>
 									</button>
 								</form>
@@ -173,11 +175,10 @@
 				<c:if test="${empty livros}">
 					<div class="card">
 						<div class="row"
-							style="padding: 150px 50px 50px 100px; background: black; height: 500px;">
+							>
 							<h1 style="margin: center; color: red;">Não foi encontrado
 								nenhum livro com esse nome !</h1>
-							<a href="/"><button class="btn btn-outline-danger btn-lg"
-									style="padding: 50px 560px 50px 250px;">
+							<a href="/"><button class="btn btn-outline-danger btn-lg">
 									<h1>Voltar</h1>
 								</button></a>
 						</div>
@@ -187,6 +188,18 @@
 
 		</div>
 	</main>
+
+	<footer class="card text-bg-dark mb-3"
+		style="max-width: 80rem; margin-top: 20px;">
+		<div class="card-header" style="padding-left: 557px;">
+			<h4>BooKFliX</h4>
+		</div>
+		<div class="card-body">
+			<h5 class="card-title" style="padding-left: 535px;">Producted By</h5>
+			<p class="card-text" style="padding-left: 500px;">Caio Rocha e
+				Max Pinheiro</p>
+		</div>
+	</footer>
 
 
 	<script

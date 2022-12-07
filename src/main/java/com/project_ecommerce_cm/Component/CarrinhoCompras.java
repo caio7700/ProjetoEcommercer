@@ -24,31 +24,24 @@ public class CarrinhoCompras {
 		livros.put(livro, getQuantidade(livro));
 	}
 
-	private Integer getQuantidade(Livro livro) {
+	public Integer getQuantidade(Livro livro) {
 		if (!livros.containsKey(livro)) {
 			return 1;
 		} else
 			return livros.get(livro) + 1;
-	}
+	}	
 
-	public Integer getQuantidadeInteger(Livro livro) {
-		if (!livros.containsKey(livro))
-			return 1;
-		else
-			return livros.get(livro);
 
-	}
-
-	public Double getQuantidadeLivros(Livro livro) {
-		return livro.getPreco()*getQuantidadeInteger(livro);
-	}
-
-	public Double getValorTotal() {
-		Double total = 0.00;
+	public double getValorTotal() {
+		double total = 0.00;
 		for (Livro livro : livros.keySet()) {
-			total = total;
+			total += livro.subtotal(getQuantidade(livro));
 		}
 		return total;
+	}
+	
+	public double getSubTotal (Livro livro) {
+		return livro.subtotal(getQuantidade(livro));
 	}
 
 	public void removerLivro(Livro livro) {

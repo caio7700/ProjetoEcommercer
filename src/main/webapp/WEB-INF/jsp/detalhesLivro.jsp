@@ -140,7 +140,8 @@
 				<h4 style="color: dark; padding-bottom: 20px;">${msg}</h4>
 				<div class="col-sm-15 d-flex align-items-stretch">
 					<div class="card text-center bg-light">
-						<img src="/${livro.foto}" class="card-img-top">
+						<img src="/${livro.foto}" class="card-img-top"
+							style="width: 450px; height: 400px;">
 						<div class="card-header">
 							<h5>R$ ${livro.preco}</h5>
 						</div>
@@ -154,15 +155,6 @@
 						</div>
 					</div>
 					<div style="padding-left: 15px;">
-						<div>
-							<h2>
-								<b>Descrição</b>
-							</h2>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nemo
-							molestiae animi recusandae, iusto, vero ea expedita veniam dolore
-							earum accusantium veritatis nulla, atque quibusdam tenetur at
-							tempora quisquam laboriosam.
-						</div>
 						<div>
 							<h2>
 								<b>Categoria</b>
@@ -187,6 +179,18 @@
 
 		</div>
 	</main>
+
+	<footer class="card text-bg-dark mb-3"
+		style="max-width: 80rem; margin-top: 20px;">
+		<div class="card-header" style="padding-left: 557px;">
+			<h4>BooKFliX</h4>
+		</div>
+		<div class="card-body">
+			<h5 class="card-title" style="padding-left: 535px;">Producted By</h5>
+			<p class="card-text" style="padding-left: 500px;">Caio Rocha e
+				Max Pinheiro</p>
+		</div>
+	</footer>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

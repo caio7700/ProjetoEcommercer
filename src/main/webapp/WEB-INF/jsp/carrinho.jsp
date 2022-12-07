@@ -129,27 +129,33 @@
 									<b>${livro.titulo}</b>
 
 								</h4>
-							</div>
-							<div
-								class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-0 col-xl-2 align-self-center mt-3"
-								style="width: 800px;">
+
 								<div class="input-group">
-									<button type="button" class="btn btn-outline-dark btn-sm">
-										<img src="/resources/imgCSS/setaDown.png" style="width: 25px;" />
-									</button>
-									<input type="text"
-										class="form-control text -center border-dark" />
-									<button type="button" class="btn btn-outline-dark btn-sm">
-										<img src="/resources/imgCSS/setaTop.png" style="width: 25px;" />
-									</button>
+									<form:form method="post"
+										servletRelativeAction="/carrinho/atualizar">
+										<input type="hidden" name="id" value="${livro.id}" />
+
+										<span><input type="number"
+											class="form-control text -center border-dark" id="quantidade"
+											name="quantidade" min="1" style="width: 128px;" ${carrinhoCompras.getQuantidade(livro)}" /><a
+											href="${s:mvcUrl('CCC#adicionarLivro').arg(0, livro.id).build() }"></a></span>
+
+										<button type="submit"
+											class="btn btn-outline-primary border-dark"
+											style="height: 40px; width: 100px; margin: 15px;">Atualizar</button>
+
+									</form:form>
+
 									<button type="button"
-										class="btn btn-outline-danger border-dark btn-sm">
+										class="btn btn-outline-danger border-dark "
+										style="height: 38px;">
 										<a href="${s:mvcUrl('CCC#remover').arg(0, livro.id).build() }"><img
 											src="/resources/imgCSS/trash.png" style="width: 25px;" /></a>
 									</button>
+
 								</div>
-								<div class="text-right mt-2">
-									<h5>R$ ${livro.preco}</h5>
+								<div style="padding: 15px;">
+									<h5>R$ ${carrinhoCompras.getSubTotal(livro)}</h5>
 								</div>
 							</div>
 
@@ -158,11 +164,27 @@
 				</c:forEach>
 
 			</ul>
-			<button class="btn btn-outline-success">
-				<a href="${s:mvcUrl('CCC#pagamento').build() }">Pagar</a>
-			</button>
+			<div class="text-right mt-2" style="margin-left: 500px;">
+				<h5>R$ ${carrinhoCompras.valorTotal}</h5>
+
+				<button class="btn btn-outline-dark border-dark">
+					<a href="${s:mvcUrl('CCC#pagamento').build() }">Pagar</a>
+				</button>
+			</div>
 		</div>
 	</main>
+
+	<footer class="card text-bg-dark mb-3"
+		style="max-width: 80rem; margin-top: 50px;">
+		<div class="card-header" style="padding-left: 557px;">
+			<h4>BooKFliX</h4>
+		</div>
+		<div class="card-body">
+			<h5 class="card-title" style="padding-left: 535px;">Producted By</h5>
+			<p class="card-text" style="padding-left: 500px;">Caio Rocha e
+				Max Pinheiro</p>
+		</div>
+	</footer>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

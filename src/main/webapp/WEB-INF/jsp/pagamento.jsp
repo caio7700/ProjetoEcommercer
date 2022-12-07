@@ -111,7 +111,8 @@
 	<main>
 
 		<div class="container">
-			<h4 style="color: dark; padding-top: 20px; padding-bottom: 20px;">Livros Comprados do pedido : ${numeroPedido} </h4>
+			<h4 style="color: dark; padding-top: 20px; padding-bottom: 20px;">Livros
+				Comprados do pedido : ${numeroPedido}</h4>
 			<hr>
 			<ul class="list-group mb-3">
 				<c:forEach items="${livrosPagos}" var="livro">
@@ -145,6 +146,18 @@
 			</ul>
 		</div>
 	</main>
+
+	<footer class="card text-bg-dark mb-3"
+		style="max-width: 80rem; margin-top: 110px;">
+		<div class="card-header" style="padding-left: 557px;">
+			<h4>BooKFliX</h4>
+		</div>
+		<div class="card-body">
+			<h5 class="card-title" style="padding-left: 535px;">Producted By</h5>
+			<p class="card-text" style="padding-left: 500px;">Caio Rocha e
+				Max Pinheiro</p>
+		</div>
+	</footer>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

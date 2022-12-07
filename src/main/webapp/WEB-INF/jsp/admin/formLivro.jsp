@@ -20,7 +20,8 @@
 	<header>
 		<nav class="navbar bg-dark navbar-dark">
 			<div class="container-fluid">
-				<a href="/" class="link-logo" style="color: white;"><span class="navbar-brand mb-0 h1">BOOKFLIX</span></a>
+				<a href="/" class="link-logo" style="color: white;"><span
+					class="navbar-brand mb-0 h1">BOOKFLIX</span></a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#menu"
 					style="cursor: pointer;" aria-expanded="true">
@@ -61,16 +62,16 @@
 			<form:form action="${s:mvcUrl('LC#create').build()}" method="POST"
 				modelAttribute="livro" enctype="multipart/form-data">
 				<div class="card-body">
-				<p style="color: green;">${msgm}</p>
+					<p style="color: green;">${msgm}</p>
 					<div>
 						<label class="col-sm-2 col-form-label"><b> Titulo </b></label>
 						<form:input path="titulo" class="form-control" />
-						<form:errors path="titulo" style="color: red;"/>
+						<form:errors path="titulo" style="color: red;" />
 					</div>
 					<div>
 						<label class="col-sm-2 col-form-label"><b>Paginas</b></label>
 						<form:input path="paginas" class="form-control" />
-						<form:errors path="paginas" style="color: red;"/>
+						<form:errors path="paginas" style="color: red;" />
 					</div>
 					<div>
 						<label class="col-sm-2 col-form-label"><b>Foto</b></label> <input
@@ -79,7 +80,7 @@
 					<div>
 						<label class="col-sm-2 col-form-label"><b>Preço</b></label>
 						<form:input path="preco" class="form-control" />
-						<form:errors path="preco" style="color: red;"/>
+						<form:errors path="preco" style="color: red;" />
 					</div>
 					<div>
 						<label class="col-sm-2 col-form-label"><b>Categoria</b></label>
@@ -89,7 +90,7 @@
 							<form:options items="${categorias}" itemLabel="nome" />
 
 						</form:select>
-						<form:errors path="categoria" style="color: red;"/>
+						<form:errors path="categoria" style="color: red;" />
 					</div>
 					<div>
 						<label class="col-sm-2 col-form-label"><b>Editora</b></label>
@@ -98,7 +99,7 @@
 							<form:option value=""> --SELECT--</form:option>
 							<form:options items="${editoras}" itemLabel="nome" />
 						</form:select>
-						<form:errors path="editora" style="color: red;"/>
+						<form:errors path="editora" style="color: red;" />
 					</div>
 					<div>
 						<label class="col-sm-2 col-form-label"><b>Autor</b></label>
@@ -107,7 +108,7 @@
 							<form:option value=""> --SELECT--</form:option>
 							<form:options items="${autores}" itemLabel="nome" />
 						</form:select>
-						<form:errors path="autor" style="color: red;"/>
+						<form:errors path="autor" style="color: red;" />
 					</div>
 					<div class="card-body">
 						<button type="submit" class="btn btn-outline-primary"
@@ -118,6 +119,19 @@
 			</form:form>
 		</div>
 	</div>
+
+	<footer class="card text-bg-dark mb-3"
+		style="max-width: 80rem; margin-top: 20px;">
+		<div class="card-header" style="padding-left: 557px;">
+			<h4>BooKFliX</h4>
+		</div>
+		<div class="card-body">
+			<h5 class="card-title" style="padding-left: 535px;">Producted By</h5>
+			<p class="card-text" style="padding-left: 500px;">Caio Rocha e
+				Max Pinheiro</p>
+		</div>
+	</footer>
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"

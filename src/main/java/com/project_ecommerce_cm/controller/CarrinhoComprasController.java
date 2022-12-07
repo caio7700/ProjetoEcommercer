@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -46,19 +47,46 @@ public class CarrinhoComprasController {
 	@GetMapping("/carrinho")
 	public ModelAndView carrinhoCompra() {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("livrosCarrinho", carrinhoCompras.getLivros());
 		modelAndView.setViewName("carrinho");
+		modelAndView.addObject("livrosCarrinho", carrinhoCompras.getLivros());
 		return modelAndView;
 	}
 
 	@GetMapping("/carrinho/{id}")
 	public ModelAndView carrinhoCompras(@PathVariable("id") Integer id) {
-
 		ModelAndView modelAndView = new ModelAndView("redirect:/carrinho");
 		Livro livro = livroRepository.findById(id).get();
 		carrinhoCompras.adicionarLivro(livro);
+		modelAndView.addObject("livrosCarrinho", carrinhoCompras.getLivros());	
 		return modelAndView;
 	}
+	
+	@GetMapping("/carrinhoaddquantidade")
+	public ModelAndView addQuantidade (@PathVariable("id") Integer id) {
+		
+		ModelAndView modelAndView = new ModelAndView("redirect:/carrinho");
+		Livro livro = livroRepository.findById(id).get();
+		carrinhoCompras.getQuantidade(livro);
+		return modelAndView;
+	}
+	
+	@GetMapping("/carrinhoadicionarlivro/{id}")
+	public ModelAndView adicionarLivro (@PathVariable("id") Integer id) {
+		ModelAndView modelAndView = new ModelAndView("carrinho");
+		Livro livro = livroRepository.findById(id).get();
+		carrinhoCompras.adicionarLivro(livro);
+		modelAndView.addObject("itensCarrinho", carrinhoCompras.getLivros());
+		return modelAndView;
+		
+	}
+	
+	@PostMapping("/carrinho/atualizar")
+	public ModelAndView atualizar(Integer id, Integer quantidade) {
+		Livro livro = livroRepository.findById(id).get();
+		carrinhoCompras.update(livro, quantidade);
+		return new ModelAndView("redirect:/carrinho");	
+	}
+	
 	
 	@GetMapping("/carrinhoremover/{id}")
 	public ModelAndView remover(@PathVariable("id") Integer id) {
@@ -70,15 +98,7 @@ public class CarrinhoComprasController {
 		return modelAndView;
 	}
 	
-//	@GetMapping("/add")
-//	public ModelAndView add(@PathVariable Integer id, Tipo tipo) {
-//		ModelAndView modelAndView = new ModelAndView("redirect:/carrinho");
-//		carrinhoCompras.adicionarLivro(criaLivro(livroId, tipo));
-//		modelAndView.addObject("livrosCarrinho", carrinhoCompras.getLivros());
-//
-//		return modelAndView;
-//	}
-	
+
 	
 	@GetMapping("/pagamento")
 	public ModelAndView pagamento() {

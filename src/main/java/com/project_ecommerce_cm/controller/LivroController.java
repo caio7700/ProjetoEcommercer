@@ -65,7 +65,10 @@ public class LivroController {
 		if (bindingResult.hasErrors()) {
 			return form(livro);
 		}
-
+		
+		livro.setAtivo(true);
+		livro.setDestaque(true);
+		
 		if (!foto1.isEmpty()) {
 			String path = fileSaver.write("imagens", foto1);
 			livro.setFoto(path);
@@ -88,8 +91,7 @@ public class LivroController {
 
 	@SuppressWarnings("deprecation")
 	@GetMapping("/admin/editarL/{id}")
-	public ModelAndView editarLivro(@PathVariable("id") Integer id, Livro livro,
-			RedirectAttributes redirectAttributes) {
+	public ModelAndView editarLivro(@PathVariable("id") Integer id, Livro livro, RedirectAttributes redirectAttributes) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("/admin/editarLivro");
 		livro = livroRepository.getById(id);
@@ -101,14 +103,9 @@ public class LivroController {
 	}
 
 	@PostMapping("/admin/editarLivro")
-	public ModelAndView updateLivro(@Valid Livro livro, BindingResult bindingResult,
-			RedirectAttributes redirectAttributes, MultipartFile foto1) {
+	public ModelAndView updateLivro(@Valid Livro livro, BindingResult bindingResult, RedirectAttributes redirectAttributes, MultipartFile foto1) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("redirect:/admin/listalivro");
-
-		if (bindingResult.hasErrors()) {
-			return editarLivro(livro.getId(), livro, redirectAttributes);
-		}
 
 		@SuppressWarnings("deprecation")
 		Livro livro1 = livroRepository.getById(livro.getId());
@@ -118,9 +115,13 @@ public class LivroController {
 		livro1.setAutor(livro.getAutor());
 		livro1.setEditora(livro.getEditora());
 		livro1.setCategoria(livro.getCategoria());
+		
+		if (bindingResult.hasErrors()) {
+			return editarLivro(livro.getId(), livro1, redirectAttributes);
+		}	
 
 		if (!foto1.isEmpty()) {
-			fileSaver.remove(livro1.getFoto());
+			fileSaver.remove(livro.getFoto());
 			String path = fileSaver.write("imagens", foto1);
 			livro1.setFoto(path);
 		}
